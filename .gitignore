@@ -1,0 +1,74 @@
+# ==========================================
+# Django
+# ==========================================
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+db.sqlite3
+db.sqlite3-journal
+/static/
+/media/
+/staticfiles/
+.web_assets/
+local_settings.py
+
+# ==========================================
+# Docker
+# ==========================================
+.docker/
+# Ignore local compose overrides if they contain secrets
+docker-compose.override.yml
+# Ignore local persistent named volumes
+.docker-volumes/
+
+# ==========================================
+# Pytest & Pytest-Cov
+# ==========================================
+.pytest_cache/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.toml
+
+# ==========================================
+# Celery
+# ==========================================
+celerybeat-schedule
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
+*.pid
+
+# ==========================================
+# Environment & Secrets (Crucial)
+# ==========================================
+.env
+.env.local
+.env.*.local
+.secret
+secrets.json
+
+# ==========================================
+# IDEs & System Files
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+support/

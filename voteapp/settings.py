@@ -37,6 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     # Third party
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "djoser",
+    "corsheaders",
+    "drf_spectacular",
+    "storages",
+    "django_filters",
+    # Local apps
+    "core",
+    "votecount",
 ]
 
 MIDDLEWARE = [
@@ -120,3 +131,29 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'core.user'
+
+DJOSER = {
+    "SET_USERNAME_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_URL": "auth/reset-password/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_RETYPE": True,
+    "LOGIN_FIELD": "email",
+    "USER_ID_FIELD": "id",
+    "SERIALIZERS": {
+        "user_create": "core.serializers.UserCreateSerializer",
+        "user": "core.serializers.UserSerializer",
+        "current_user": "core.serializers.UserSerializer",
+    },
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "PAGE_SIZE": 20,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
