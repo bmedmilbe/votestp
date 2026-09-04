@@ -1,0 +1,2458 @@
+[
+  {
+    "distrito": {
+      "name": "Agua Grande",
+      "sigla": "AG",
+      "localidades": [
+        {
+          "Circunscrição": "AG-01",
+          "Letras": "A",
+          "Eleitores": 393,
+          "Localidade(s)": "Av. Kwame Nkruma, Frente de cadeia até Crz de Bairro Quilombo, Ponta Mina, Rua João de Deus",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica Dona Maria de Jesus"
+        },
+        {
+          "Circunscrição": "AG-01",
+          "Letras": "B",
+          "Eleitores": 512,
+          "Localidade(s)": "Av. Kwame Nkruma, Frente de cadeia até Crz de Bairro Quilombo, Ponta Mina, Rua João de Deus",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica Dona Maria de Jesus"
+        },
+        {
+          "Circunscrição": "AG-01",
+          "Letras": "C",
+          "Eleitores": 446,
+          "Localidade(s)": "Av. Kwame Nkruma, Frente de cadeia até Crz de Bairro Quilombo, Ponta Mina, Rua João de Deus",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica Dona Maria de Jesus"
+        },
+        {
+          "Circunscrição": "AG-02",
+          "Letras": "A",
+          "Eleitores": 597,
+          "Localidade(s)": "Amílcar Cabral até Rua Presidente Nasser, Av. Marginal 12 de Julho, Bairro 3 de Fevereiro, Gago Coutinho, Rua da Caixa, Rua Viriato da Cruz",
+          "Local da(s) Mesa(s) de Voto": "ISEC"
+        },
+        {
+          "Circunscrição": "AG-03",
+          "Letras": "A",
+          "Eleitores": 182,
+          "Localidade(s)": "Av. da Independência, Cabo Verde, Conceição, Damão, Guiné, Marginal até ant.casa de Sr.Mendonça(Largo Igreja), Município, Praça Yon Gato, Rua da Goa, Rua de Angola, Rua Patrice Lumumba",
+          "Local da(s) Mesa(s) de Voto": "Jardim Tartaruga"
+        },
+        {
+          "Circunscrição": "AG-04",
+          "Letras": "A",
+          "Eleitores": 499,
+          "Localidade(s)": "Atrás de Cadeia, Bairro Quilombo e Stª António",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica 12 de julho"
+        },
+        {
+          "Circunscrição": "AG-04",
+          "Letras": "B",
+          "Eleitores": 384,
+          "Localidade(s)": "Atrás de Cadeia, Bairro Quilombo e Stª António",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica 12 de julho"
+        },
+        {
+          "Circunscrição": "AG-04",
+          "Letras": "C",
+          "Eleitores": 425,
+          "Localidade(s)": "Atrás de Cadeia, Bairro Quilombo e Stª António",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica 12 de julho"
+        },
+        {
+          "Circunscrição": "AG-05",
+          "Letras": "A",
+          "Eleitores": 405,
+          "Localidade(s)": "De 1º cruzamento de Stª António, Fruta Fruta, Stª Antonio",
+          "Local da(s) Mesa(s) de Voto": "Centro Politécnico"
+        },
+        {
+          "Circunscrição": "AG-05",
+          "Letras": "B",
+          "Eleitores": 421,
+          "Localidade(s)": "De 1º cruzamento de Stª António, Fruta Fruta, Stª Antonio",
+          "Local da(s) Mesa(s) de Voto": "Centro Politécnico"
+        },
+        {
+          "Circunscrição": "AG-05",
+          "Letras": "C",
+          "Eleitores": 479,
+          "Localidade(s)": "De 1º cruzamento de Stª António, Fruta Fruta, Stª Antonio",
+          "Local da(s) Mesa(s) de Voto": "Centro Politécnico"
+        },
+        {
+          "Circunscrição": "AG-06",
+          "Letras": "A",
+          "Eleitores": 465,
+          "Localidade(s)": "Fruta Fruta depois do Terraço do Sr. Quim, Quinta de Stª. António, Vila Mareco",
+          "Local da(s) Mesa(s) de Voto": "Palácio da Juventude e Desporto"
+        },
+        {
+          "Circunscrição": "AG-07",
+          "Letras": "A",
+          "Eleitores": 428,
+          "Localidade(s)": "Água Colma, Centro de Água Arroz, Curva de Srª Albertina, S. Marcos",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Managem"
+        },
+        {
+          "Circunscrição": "AG-07",
+          "Letras": "B",
+          "Eleitores": 440,
+          "Localidade(s)": "Água Colma, Centro de Água Arroz, Curva de Srª Albertina, S. Marcos",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Managem"
+        },
+        {
+          "Circunscrição": "AG-07",
+          "Letras": "C",
+          "Eleitores": 557,
+          "Localidade(s)": "Água Colma, Centro de Água Arroz, Curva de Srª Albertina, S. Marcos",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Managem"
+        },
+        {
+          "Circunscrição": "AG-07",
+          "Letras": "D",
+          "Eleitores": 420,
+          "Localidade(s)": "Água Colma, Centro de Água Arroz, Curva de Srª Albertina, S. Marcos",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Managem"
+        },
+        {
+          "Circunscrição": "AG-08",
+          "Letras": "A",
+          "Eleitores": 494,
+          "Localidade(s)": "Almeirim",
+          "Local da(s) Mesa(s) de Voto": "Escola de Almeirim"
+        },
+        {
+          "Circunscrição": "AG-08",
+          "Letras": "B",
+          "Eleitores": 491,
+          "Localidade(s)": "Almeirim",
+          "Local da(s) Mesa(s) de Voto": "Escola de Almeirim"
+        },
+        {
+          "Circunscrição": "AG-08",
+          "Letras": "C",
+          "Eleitores": 424,
+          "Localidade(s)": "Almeirim",
+          "Local da(s) Mesa(s) de Voto": "Escola de Almeirim"
+        },
+        {
+          "Circunscrição": "AG-08",
+          "Letras": "D",
+          "Eleitores": 327,
+          "Localidade(s)": "Almeirim",
+          "Local da(s) Mesa(s) de Voto": "Escola de Almeirim"
+        },
+        {
+          "Circunscrição": "AG-08",
+          "Letras": "E",
+          "Eleitores": 302,
+          "Localidade(s)": "Almeirim",
+          "Local da(s) Mesa(s) de Voto": "Escola de Almeirim"
+        },
+        {
+          "Circunscrição": "AG-09",
+          "Letras": "A",
+          "Eleitores": 458,
+          "Localidade(s)": "Água Bôbô até terraço de srª Albertina, De Ponte de Água Serra, Palha",
+          "Local da(s) Mesa(s) de Voto": "Água Bôbô"
+        },
+        {
+          "Circunscrição": "AG-18",
+          "Letras": "C",
+          "Eleitores": 308,
+          "Localidade(s)": "Atelier central até Escola de Bôbô Forro, Blublú, Coconaja cuto, Depósito velho",
+          "Local da(s) Mesa(s) de Voto": "Terraço Povos Unidos"
+        },
+        {
+          "Circunscrição": "AG-19",
+          "Letras": "A",
+          "Eleitores": 540,
+          "Localidade(s)": "Atrás da Igreja de Conceição, Avenida Geovani até sede de Victória de Riboque, Riboque centro até entrada de ponte graça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Victoria de Riboque"
+        },
+        {
+          "Circunscrição": "AG-19",
+          "Letras": "B",
+          "Eleitores": 575,
+          "Localidade(s)": "Atrás da Igreja de Conceição, Avenida Geovani até sede de Victória de Riboque, Riboque centro até entrada de ponte graça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Victoria de Riboque"
+        },
+        {
+          "Circunscrição": "AG-19",
+          "Letras": "C",
+          "Eleitores": 466,
+          "Localidade(s)": "Atrás da Igreja de Conceição, Avenida Geovani até sede de Victória de Riboque, Riboque centro até entrada de ponte graça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Victoria de Riboque"
+        },
+        {
+          "Circunscrição": "AG-19",
+          "Letras": "D",
+          "Eleitores": 303,
+          "Localidade(s)": "Atrás da Igreja de Conceição, Avenida Geovani até sede de Victória de Riboque, Riboque centro até entrada de ponte graça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Victoria de Riboque"
+        },
+        {
+          "Circunscrição": "AG-19",
+          "Letras": "E",
+          "Eleitores": 342,
+          "Localidade(s)": "Atrás da Igreja de Conceição, Avenida Geovani até sede de Victória de Riboque, Riboque centro até entrada de ponte graça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Victoria de Riboque"
+        },
+        {
+          "Circunscrição": "AG-20",
+          "Letras": "A",
+          "Eleitores": 455,
+          "Localidade(s)": "Cruzamento de Reboque, Lucumi, sede Coimbra, Vigoço até sr. Daio",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Vicoço Fernanda e Esc. B. Fernanda Margato"
+        },
+        {
+          "Circunscrição": "AG-20",
+          "Letras": "B",
+          "Eleitores": 586,
+          "Localidade(s)": "Cruzamento de Reboque, Lucumi, sede Coimbra, Vigoço até sr. Daio",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Vicoço Fernanda e Esc. B. Fernanda Margato"
+        },
+        {
+          "Circunscrição": "AG-20",
+          "Letras": "C",
+          "Eleitores": 521,
+          "Localidade(s)": "Cruzamento de Reboque, Lucumi, sede Coimbra, Vigoço até sr. Daio",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Vicoço Fernanda e Esc. B. Fernanda Margato"
+        },
+        {
+          "Circunscrição": "AG-21",
+          "Letras": "A",
+          "Eleitores": 526,
+          "Localidade(s)": "Água Porca, De sr. Daio, Fundação",
+          "Local da(s) Mesa(s) de Voto": "Escola Fundação"
+        },
+        {
+          "Circunscrição": "AG-21",
+          "Letras": "B",
+          "Eleitores": 529,
+          "Localidade(s)": "Água Porca, De sr. Daio, Fundação",
+          "Local da(s) Mesa(s) de Voto": "Escola Fundação"
+        },
+        {
+          "Circunscrição": "AG-21",
+          "Letras": "C",
+          "Eleitores": 592,
+          "Localidade(s)": "Água Porca, De sr. Daio, Fundação",
+          "Local da(s) Mesa(s) de Voto": "Escola Fundação"
+        },
+        {
+          "Circunscrição": "AG-21",
+          "Letras": "D",
+          "Eleitores": 435,
+          "Localidade(s)": "Água Porca, De sr. Daio, Fundação",
+          "Local da(s) Mesa(s) de Voto": "Escola Fundação"
+        },
+        {
+          "Circunscrição": "AG-22",
+          "Letras": "A",
+          "Eleitores": 570,
+          "Localidade(s)": "Boa Morte Cima, Correia, Palmar, Penha",
+          "Local da(s) Mesa(s) de Voto": "Escola de Boa Morte"
+        },
+        {
+          "Circunscrição": "AG-22",
+          "Letras": "B",
+          "Eleitores": 511,
+          "Localidade(s)": "Boa Morte Cima, Correia, Palmar, Penha",
+          "Local da(s) Mesa(s) de Voto": "Escola de Boa Morte"
+        },
+        {
+          "Circunscrição": "AG-22",
+          "Letras": "C",
+          "Eleitores": 499,
+          "Localidade(s)": "Boa Morte Cima, Correia, Palmar, Penha",
+          "Local da(s) Mesa(s) de Voto": "Escola de Boa Morte"
+        },
+        {
+          "Circunscrição": "AG-22",
+          "Letras": "D",
+          "Eleitores": 533,
+          "Localidade(s)": "Boa Morte Cima, Correia, Palmar, Penha",
+          "Local da(s) Mesa(s) de Voto": "Escola de Boa Morte"
+        },
+        {
+          "Circunscrição": "AG-22",
+          "Letras": "E",
+          "Eleitores": 508,
+          "Localidade(s)": "Boa Morte Cima, Correia, Palmar, Penha",
+          "Local da(s) Mesa(s) de Voto": "Escola de Boa Morte"
+        },
+        {
+          "Circunscrição": "AG-23",
+          "Letras": "A",
+          "Eleitores": 520,
+          "Localidade(s)": "Boa Morte Baixo, Vage Sun Zon da Clusso até terraço Marítimo",
+          "Local da(s) Mesa(s) de Voto": "Terraço Marítimo"
+        },
+        {
+          "Circunscrição": "AG-23",
+          "Letras": "B",
+          "Eleitores": 539,
+          "Localidade(s)": "Boa Morte Baixo, Vage Sun Zon da Clusso até terraço Marítimo",
+          "Local da(s) Mesa(s) de Voto": "Terraço Marítimo"
+        },
+
+        {
+          "Circunscrição": "AG-24",
+          "Letras": "A",
+          "Eleitores": 390,
+          "Localidade(s)": "Mulundo, Ponte Graça",
+          "Local da(s) Mesa(s) de Voto": "Escola Atanásio Gomes"
+        },
+        {
+          "Circunscrição": "AG-24",
+          "Letras": "B",
+          "Eleitores": 411,
+          "Localidade(s)": "Mulundo, Ponte Graça",
+          "Local da(s) Mesa(s) de Voto": "Escola Atanásio Gomes"
+        },
+        {
+          "Circunscrição": "AG-25",
+          "Letras": "A",
+          "Eleitores": 451,
+          "Localidade(s)": "Marginal até S. Pedro, Mato Kitxibá, Rua de Quizomba, Rua Padre Martinho Pinto da Rocha, S. João da Vargem",
+          "Local da(s) Mesa(s) de Voto": "Esc. Secundário de S. João"
+        },
+        {
+          "Circunscrição": "AG-25",
+          "Letras": "B",
+          "Eleitores": 464,
+          "Localidade(s)": "Marginal até S. Pedro, Mato Kitxibá, Rua de Quizomba, Rua Padre Martinho Pinto da Rocha, S. João da Vargem",
+          "Local da(s) Mesa(s) de Voto": "Esc. Secundário de S. João"
+        },
+        {
+          "Circunscrição": "AG-25",
+          "Letras": "C",
+          "Eleitores": 580,
+          "Localidade(s)": "Marginal até S. Pedro, Mato Kitxibá, Rua de Quizomba, Rua Padre Martinho Pinto da Rocha, S. João da Vargem",
+          "Local da(s) Mesa(s) de Voto": "Esc. Secundário de S. João"
+        },
+        {
+          "Circunscrição": "AG-25",
+          "Letras": "D",
+          "Eleitores": 449,
+          "Localidade(s)": "Marginal até S. Pedro, Mato Kitxibá, Rua de Quizomba, Rua Padre Martinho Pinto da Rocha, S. João da Vargem",
+          "Local da(s) Mesa(s) de Voto": "Esc. Secundário de S. João"
+        },
+
+        {
+          "Circunscrição": "AG-26",
+          "Letras": "A",
+          "Eleitores": 351,
+          "Localidade(s)": "Mesquita, Santarém, Uba Cabra",
+          "Local da(s) Mesa(s) de Voto": "Sede de Pastélim"
+        },
+        {
+          "Circunscrição": "AG-26",
+          "Letras": "B",
+          "Eleitores": 336,
+          "Localidade(s)": "Mesquita, Santarém, Uba Cabra",
+          "Local da(s) Mesa(s) de Voto": "Sede de Pastélim"
+        },
+        {
+          "Circunscrição": "AG-27",
+          "Letras": "A",
+          "Eleitores": 433,
+          "Localidade(s)": "Água Marçal, Igreja Nova Apostólica",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Karaté"
+        },
+        {
+          "Circunscrição": "AG-27",
+          "Letras": "B",
+          "Eleitores": 401,
+          "Localidade(s)": "Água Marçal, Igreja Nova Apostólica",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Sr. Karaté"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "A",
+          "Eleitores": 459,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "B",
+          "Eleitores": 353,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "C",
+          "Eleitores": 502,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "D",
+          "Eleitores": 566,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "E",
+          "Eleitores": 505,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-28",
+          "Letras": "F",
+          "Eleitores": 475,
+          "Localidade(s)": "Bairro da Liberdade, Cruz Mami, De Igreja Nova Apostólica, O que Del Rei",
+          "Local da(s) Mesa(s) de Voto": "Escola de Oque Del Rei"
+        },
+        {
+          "Circunscrição": "AG-29",
+          "Letras": "A",
+          "Eleitores": 516,
+          "Localidade(s)": "Atrás de Cemitério",
+          "Local da(s) Mesa(s) de Voto": "Ké Morabeza"
+        },
+        {
+          "Circunscrição": "AG-30",
+          "Letras": "A",
+          "Eleitores": 425,
+          "Localidade(s)": "Budo Budo, Poto Potó até subida de quartel",
+          "Local da(s) Mesa(s) de Voto": "Sede de Sporting"
+        },
+        {
+          "Circunscrição": "AG-30",
+          "Letras": "B",
+          "Eleitores": 421,
+          "Localidade(s)": "Budo Budo, Poto Potó até subida de quartel",
+          "Local da(s) Mesa(s) de Voto": "Sede de Sporting"
+        },
+        {
+          "Circunscrição": "AG-31",
+          "Letras": "A",
+          "Eleitores": 595,
+          "Localidade(s)": "Atrás do Hospital",
+          "Local da(s) Mesa(s) de Voto": "Atrás de Hospital"
+        },
+        {
+          "Circunscrição": "AG-31",
+          "Letras": "B",
+          "Eleitores": 337,
+          "Localidade(s)": "Atrás do Hospital",
+          "Local da(s) Mesa(s) de Voto": "Atrás de Hospital"
+        },
+        {
+          "Circunscrição": "AG-31",
+          "Letras": "C",
+          "Eleitores": 266,
+          "Localidade(s)": "Atrás do Hospital",
+          "Local da(s) Mesa(s) de Voto": "Atrás de Hospital"
+        },
+        {
+          "Circunscrição": "AG-32",
+          "Letras": "A",
+          "Eleitores": 476,
+          "Localidade(s)": "Bairro do Aeroporto, Bairro Satón, Praia Emília, Praia Francesa, Praia Lagarto, Praia Nazaré",
+          "Local da(s) Mesa(s) de Voto": "Escola Francisco Tenreiro"
+        },
+        {
+          "Circunscrição": "AG-32",
+          "Letras": "B",
+          "Eleitores": 465,
+          "Localidade(s)": "Bairro do Aeroporto, Bairro Satón, Praia Emília, Praia Francesa, Praia Lagarto, Praia Nazaré",
+          "Local da(s) Mesa(s) de Voto": "Escola Francisco Tenreiro"
+        },
+        {
+          "Circunscrição": "AG-33",
+          "Letras": "A",
+          "Eleitores": 422,
+          "Localidade(s)": "Diogo Nunes, Praia Cruz",
+          "Local da(s) Mesa(s) de Voto": "Escola N. de Praia Gamboa"
+        },
+        {
+          "Circunscrição": "AG-33",
+          "Letras": "B",
+          "Eleitores": 427,
+          "Localidade(s)": "Diogo Nunes, Praia Cruz",
+          "Local da(s) Mesa(s) de Voto": "Escola N. de Praia Gamboa"
+        },
+        {
+          "Circunscrição": "AG-34",
+          "Letras": "A",
+          "Eleitores": 406,
+          "Localidade(s)": "Praia Gamboa, Praia Lochinga",
+          "Local da(s) Mesa(s) de Voto": "Boeng 707"
+        },
+        {
+          "Circunscrição": "AG-34",
+          "Letras": "B",
+          "Eleitores": 439,
+          "Localidade(s)": "Praia Gamboa, Praia Lochinga",
+          "Local da(s) Mesa(s) de Voto": "Boeng 707"
+        },
+        {
+          "Circunscrição": "AG-34",
+          "Letras": "C",
+          "Eleitores": 567,
+          "Localidade(s)": "Praia Gamboa, Praia Lochinga",
+          "Local da(s) Mesa(s) de Voto": "Boeng 707"
+        },
+        {
+          "Circunscrição": "AG-34",
+          "Letras": "D",
+          "Eleitores": 406,
+          "Localidade(s)": "Praia Gamboa, Praia Lochinga",
+          "Local da(s) Mesa(s) de Voto": "Boeng 707"
+        },
+        {
+          "Circunscrição": "AG-35",
+          "Letras": "A",
+          "Eleitores": 447,
+          "Localidade(s)": "Bairro Militar, Campo de Milho",
+          "Local da(s) Mesa(s) de Voto": "Victor Sá Machado"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Angola",
+      "sigla": "AN",
+      "localidades": [
+        {
+          "Circunscrição": "AN-01",
+          "Letras": "A",
+          "Eleitores": 490,
+          "Localidade(s)": "Boa Vista, Chicala, Ilha de Luanda, Prenda, Sambizanga, São Paulo",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "AN-01",
+          "Letras": "B",
+          "Eleitores": 550,
+          "Localidade(s)": "Boa Vista, Chicala, Ilha de Luanda, Prenda, Sambizanga, São Paulo",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "AN-01",
+          "Letras": "C",
+          "Eleitores": 595,
+          "Localidade(s)": "Boa Vista, Chicala, Ilha de Luanda, Prenda, Sambizanga, São Paulo",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "AN-02",
+          "Letras": "A",
+          "Eleitores": 252,
+          "Localidade(s)": "Cacuaco",
+          "Local da(s) Mesa(s) de Voto": "Cacuaco"
+        },
+        {
+          "Circunscrição": "AN-03",
+          "Letras": "A",
+          "Eleitores": 558,
+          "Localidade(s)": "Benfica, Gamek, Morro Bento, Morro da Luz, Benfica Mundial Ramiros, Samba",
+          "Local da(s) Mesa(s) de Voto": "Benfica"
+        },
+        {
+          "Circunscrição": "AN-03",
+          "Letras": "B",
+          "Eleitores": 527,
+          "Localidade(s)": "Benfica, Gamek, Morro Bento, Morro da Luz, Benfica Mundial Ramiros, Samba",
+          "Local da(s) Mesa(s) de Voto": "Benfica"
+        },
+        {
+          "Circunscrição": "AN-04",
+          "Letras": "A",
+          "Eleitores": 245,
+          "Localidade(s)": "Viana",
+          "Local da(s) Mesa(s) de Voto": "Viana"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Belgica",
+      "sigla": "BE",
+      "localidades": [
+        {
+          "Circunscrição": "BE-01",
+          "Letras": "A",
+          "Eleitores": 118,
+          "Localidade(s)": "Bruxelas",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        }
+      ]
+    }
+  },
+
+  {
+    "distrito": {
+      "name": "Cauê",
+      "sigla": "CE",
+      "localidades": [
+        {
+          "Circunscrição": "CE-01",
+          "Letras": "A",
+          "Eleitores": 491,
+          "Localidade(s)": "Angolares, Roça S.João",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Angolares"
+        },
+        {
+          "Circunscrição": "CE-01",
+          "Letras": "B",
+          "Eleitores": 498,
+          "Localidade(s)": "Angolares, Roça S.João",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Angolares"
+        },
+        {
+          "Circunscrição": "CE-01",
+          "Letras": "C",
+          "Eleitores": 531,
+          "Localidade(s)": "Angolares, Roça S.João",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Angolares"
+        },
+        {
+          "Circunscrição": "CE-01",
+          "Letras": "D",
+          "Eleitores": 426,
+          "Localidade(s)": "Angolares, Roça S.João",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Angolares"
+        },
+        {
+          "Circunscrição": "CE-02",
+          "Letras": "A",
+          "Eleitores": 388,
+          "Localidade(s)": "Água João, Aliança, Amgobo, Angra Toldo Praia, Coimbra",
+          "Local da(s) Mesa(s) de Voto": "Mercado Angra Toldo"
+        },
+        {
+          "Circunscrição": "CE-03",
+          "Letras": "A",
+          "Eleitores": 52,
+          "Localidade(s)": "Fraternidade, Manuel Corroça, Soledade",
+          "Local da(s) Mesa(s) de Voto": "Soledade"
+        },
+        {
+          "Circunscrição": "CE-04",
+          "Letras": "A",
+          "Eleitores": 164,
+          "Localidade(s)": "Ió Grande",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Io Grande"
+        },
+        {
+          "Circunscrição": "CE-05",
+          "Letras": "A",
+          "Eleitores": 166,
+          "Localidade(s)": "Água João Azeitona, Dona Augusta",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Dona Augusta"
+        },
+        {
+          "Circunscrição": "CE-06",
+          "Letras": "A",
+          "Eleitores": 178,
+          "Localidade(s)": "Nunos Oliveira, Praia Pesqueira",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Praia Pesqueira"
+        },
+        {
+          "Circunscrição": "CE-07",
+          "Letras": "A",
+          "Eleitores": 428,
+          "Localidade(s)": "R.Praia, Ribeira Peixe",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Ribeira Peixe"
+        },
+        {
+          "Circunscrição": "CE-08",
+          "Letras": "A",
+          "Eleitores": 308,
+          "Localidade(s)": "Clotilde, Emolve, Mateus Chapanho, Vila Irene",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Vila José"
+        },
+        {
+          "Circunscrição": "CE-09",
+          "Letras": "A",
+          "Eleitores": 213,
+          "Localidade(s)": "Monte Mário",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Monte Mário"
+        },
+        {
+          "Circunscrição": "CE-10",
+          "Letras": "A",
+          "Eleitores": 115,
+          "Localidade(s)": "Ponta Baleia, Vila Conceição",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Ponta Baleia"
+        },
+        {
+          "Circunscrição": "CE-11",
+          "Letras": "A",
+          "Eleitores": 410,
+          "Localidade(s)": "Santa Zefina, Santo AntonioMuçacavu, Vila Malanza, Vili",
+          "Local da(s) Mesa(s) de Voto": "Tenda ao lado dos Leigos"
+        },
+        {
+          "Circunscrição": "CE-12",
+          "Letras": "A",
+          "Eleitores": 576,
+          "Localidade(s)": "Porto Alegre",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Porto Alegre"
+        },
+        {
+          "Circunscrição": "CE-13",
+          "Letras": "A",
+          "Eleitores": 95,
+          "Localidade(s)": "Ilhéu das Rolas",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Ilhéu das Rolas"
+        }
+      ]
+    }
+  },
+
+  {
+    "distrito": {
+      "name": "Cantagalo",
+      "sigla": "CG",
+      "localidades": [
+        {
+          "Circunscrição": "CG-01",
+          "Letras": "A",
+          "Eleitores": 582,
+          "Localidade(s)": "Cidade de Santana, Micondó, Vila Alta",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Infância"
+        },
+        {
+          "Circunscrição": "CG-01",
+          "Letras": "B",
+          "Eleitores": 572,
+          "Localidade(s)": "Cidade de Santana, Micondó, Vila Alta",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Infância"
+        },
+        {
+          "Circunscrição": "CG-02",
+          "Letras": "A",
+          "Eleitores": 377,
+          "Localidade(s)": "Cova Água, Picão Velho",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Adão Deus Lima"
+        },
+        {
+          "Circunscrição": "CG-02",
+          "Letras": "B",
+          "Eleitores": 394,
+          "Localidade(s)": "Cova Água, Picão Velho",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Adão Deus Lima"
+        },
+        {
+          "Circunscrição": "CG-03",
+          "Letras": "A",
+          "Eleitores": 435,
+          "Localidade(s)": "Bairro Boa Vista, Bairro dos Casados",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária"
+        },
+        {
+          "Circunscrição": "CG-04",
+          "Letras": "A",
+          "Eleitores": 222,
+          "Localidade(s)": "Praia Almoxarife, Uba Budo Praia",
+          "Local da(s) Mesa(s) de Voto": "Salão de Convívio"
+        },
+        {
+          "Circunscrição": "CG-05",
+          "Letras": "A",
+          "Eleitores": 377,
+          "Localidade(s)": "Algés (Voa), Aviário de Pinheira",
+          "Local da(s) Mesa(s) de Voto": "Algés"
+        },
+        {
+          "Circunscrição": "CG-06",
+          "Letras": "A",
+          "Eleitores": 323,
+          "Localidade(s)": "Guégue Forro, Pinheira Roça",
+          "Local da(s) Mesa(s) de Voto": "Sede de Associação dos Camponeses"
+        },
+        {
+          "Circunscrição": "CG-07",
+          "Letras": "A",
+          "Eleitores": 179,
+          "Localidade(s)": "Clara Dias, Pedroma",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Infância de Pedroma"
+        },
+        {
+          "Circunscrição": "CG-08",
+          "Letras": "A",
+          "Eleitores": 485,
+          "Localidade(s)": "Apolónia, Guégue, Roça Formosa, Santa Clotilde, Uba Budo Sede, Vila Celeste",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Uba Budo"
+        },
+        {
+          "Circunscrição": "CG-09",
+          "Letras": "A",
+          "Eleitores": 573,
+          "Localidade(s)": "Água Bôbô, Apolónia, Formosa, Gomes, Uba Budo Velho",
+          "Local da(s) Mesa(s) de Voto": "Gomes \"Tenda\""
+        },
+        {
+          "Circunscrição": "CG-10",
+          "Letras": "A",
+          "Eleitores": 413,
+          "Localidade(s)": "Domingos Laranjeira, Mestre António, Zandriqo",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Zandriqo"
+        },
+        {
+          "Circunscrição": "CG-10",
+          "Letras": "B",
+          "Eleitores": 415,
+          "Localidade(s)": "Domingos Laranjeira, Mestre António, Zandriqo",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Zandriqo"
+        },
+        {
+          "Circunscrição": "CG-11",
+          "Letras": "A",
+          "Eleitores": 556,
+          "Localidade(s)": "Bairro Popular, Baixo de Ocá, Riboque Santana",
+          "Local da(s) Mesa(s) de Voto": "Terraço Dedino"
+        },
+        {
+          "Circunscrição": "CG-11",
+          "Letras": "B",
+          "Eleitores": 351,
+          "Localidade(s)": "Bairro Popular, Baixo de Ocá, Riboque Santana",
+          "Local da(s) Mesa(s) de Voto": "Terraço Dedino"
+        },
+        {
+          "Circunscrição": "CG-11",
+          "Letras": "C",
+          "Eleitores": 277,
+          "Localidade(s)": "Bairro Popular, Baixo de Ocá, Riboque Santana",
+          "Local da(s) Mesa(s) de Voto": "Terraço Dedino"
+        },
+        {
+          "Circunscrição": "CG-12",
+          "Letras": "A",
+          "Eleitores": 390,
+          "Localidade(s)": "Messias Alves",
+          "Local da(s) Mesa(s) de Voto": "Messias Alves \"Tenda\""
+        },
+        {
+          "Circunscrição": "CG-13",
+          "Letras": "A",
+          "Eleitores": 552,
+          "Localidade(s)": "Nova Linda, Picão Flôr",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Riboque Santana"
+        },
+        {
+          "Circunscrição": "CG-14",
+          "Letras": "A",
+          "Eleitores": 468,
+          "Localidade(s)": "Monte Hermínio, Quimpo, Santo António",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Quimpo"
+        },
+        {
+          "Circunscrição": "CG-15",
+          "Letras": "A",
+          "Eleitores": 340,
+          "Localidade(s)": "Bernardo Faro, Claudino Faro, Vale Formoso",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Bernardo Faro"
+        },
+        {
+          "Circunscrição": "CG-16",
+          "Letras": "A",
+          "Eleitores": 513,
+          "Localidade(s)": "Anselmo Andrade, Mato Cana, Olivares Marim, Ponta Palmeira",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Anselmo Andrade"
+        },
+        {
+          "Circunscrição": "CG-17",
+          "Letras": "A",
+          "Eleitores": 256,
+          "Localidade(s)": "Mendes da Silva, Monte Belo",
+          "Local da(s) Mesa(s) de Voto": "Sede da Associação de Monde Belo"
+        },
+        {
+          "Circunscrição": "CG-18",
+          "Letras": "A",
+          "Eleitores": 428,
+          "Localidade(s)": "Água Izé",
+          "Local da(s) Mesa(s) de Voto": "Escola Integrada de Água Izé"
+        },
+        {
+          "Circunscrição": "CG-18",
+          "Letras": "B",
+          "Eleitores": 446,
+          "Localidade(s)": "Água Izé",
+          "Local da(s) Mesa(s) de Voto": "Escola Integrada de Água Izé"
+        },
+        {
+          "Circunscrição": "CG-19",
+          "Letras": "A",
+          "Eleitores": 307,
+          "Localidade(s)": "Castelo, Plano de Água Izé",
+          "Local da(s) Mesa(s) de Voto": "Centro Comunitário do Plano de Água Izé"
+        },
+        {
+          "Circunscrição": "CG-20",
+          "Letras": "A",
+          "Eleitores": 457,
+          "Localidade(s)": "Alto Douro, Mussèque, Ribeira Afonso",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Ribeira Afonso"
+        },
+        {
+          "Circunscrição": "CG-20",
+          "Letras": "B",
+          "Eleitores": 550,
+          "Localidade(s)": "Alto Douro, Mussèque, Ribeira Afonso",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Ribeira Afonso"
+        },
+        {
+          "Circunscrição": "CG-20",
+          "Letras": "C",
+          "Eleitores": 510,
+          "Localidade(s)": "Alto Douro, Mussèque, Ribeira Afonso",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Ribeira Afonso"
+        },
+        {
+          "Circunscrição": "CG-21",
+          "Letras": "A",
+          "Eleitores": 298,
+          "Localidade(s)": "Amparo I, Colónia Açoriana, S. Francisco, S. Manuel, São Paulo",
+          "Local da(s) Mesa(s) de Voto": "Escola Integrada de Colónia Açoriana"
+        },
+        {
+          "Circunscrição": "CG-22",
+          "Letras": "A",
+          "Eleitores": 316,
+          "Localidade(s)": "Caridade, Praia de Colónia, S. Cecília",
+          "Local da(s) Mesa(s) de Voto": "Salão de Convívio em Santa Cecília"
+        },
+        {
+          "Circunscrição": "CG-23",
+          "Letras": "A",
+          "Eleitores": 126,
+          "Localidade(s)": "Angra Toldo Cavalete, Roça Alice, Roça Micondó",
+          "Local da(s) Mesa(s) de Voto": "Posto Médico de Angra Toldo Cavalete"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Cabo Verde",
+      "sigla": "CV",
+      "localidades": [
+        {
+          "Circunscrição": "CV-01",
+          "Letras": "A",
+          "Eleitores": 337,
+          "Localidade(s)": "Ilha de São Tiago, Praia/ S. Domingos/ Cidade Velha",
+          "Local da(s) Mesa(s) de Voto": "Embaixada de STP"
+        },
+        {
+          "Circunscrição": "CV-02",
+          "Letras": "A",
+          "Eleitores": 30,
+          "Localidade(s)": "S. Cruz / Calheta /Órgão, S. cruz/ Calheita/ Órgão",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural Norberto Tavares, Assomada"
+        },
+        {
+          "Circunscrição": "CV-03",
+          "Letras": "A",
+          "Eleitores": 86,
+          "Localidade(s)": "Assomada / Tarrafal",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural Norberto Tavares, Assomada"
+        },
+        {
+          "Circunscrição": "CV-05",
+          "Letras": "A",
+          "Eleitores": 44,
+          "Localidade(s)": "Ilha do Sal",
+          "Local da(s) Mesa(s) de Voto": "Centro Multiuso África 70"
+        },
+        {
+          "Circunscrição": "CV-08",
+          "Letras": "A",
+          "Eleitores": 15,
+          "Localidade(s)": "Boa Vista",
+          "Local da(s) Mesa(s) de Voto": "Centro Multiuso África 70"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "França",
+      "sigla": "FR",
+      "localidades": [
+        {
+          "Circunscrição": "FR-01",
+          "Letras": "A",
+          "Eleitores": 210,
+          "Localidade(s)": "Paris-Creteil",
+          "Local da(s) Mesa(s) de Voto": "Consulado - Paris"
+        },
+        {
+          "Circunscrição": "FR-06",
+          "Letras": "A",
+          "Eleitores": 54,
+          "Localidade(s)": "Nice",
+          "Local da(s) Mesa(s) de Voto": "França - Nice"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Gabão",
+      "sigla": "GB",
+      "localidades": [
+        {
+          "Circunscrição": "GB-01",
+          "Letras": "A",
+          "Eleitores": 69,
+          "Localidade(s)": "Ancienne Sobraga, Avea, Bessieux, Cité de la Democratie, Cocotiers, Jean Paul II, Montagne Sainte, Nkembo, Nzeng Ayong, RYG, Sotéga",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-02",
+          "Letras": "A",
+          "Eleitores": 166,
+          "Localidade(s)": "Boulevard Trionphal, Cité Ponpidou, Derrière L'Assemblée, Plaine Orety",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-03",
+          "Letras": "A",
+          "Eleitores": 313,
+          "Localidade(s)": "Acaé, Bas de Gué-Gué, Batterie IV, Camp de Boys, Derière l'École Normale, Derière la , Derière SMAG, Derrière la Prison, Haut de Gué-Gué, Kalicak, Lalalá à Gauche, Louis, Prison, Soduco, Trois Quartiers",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-04",
+          "Letras": "A",
+          "Eleitores": 98,
+          "Localidade(s)": "Beau Séjour, Cíé Damas, Glass, Lalaá à Droite, lalalá dakar, Londom, Nombakalé, Ozangue, Plain Ciel, Saint Germain",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-05",
+          "Letras": "A",
+          "Eleitores": 135,
+          "Localidade(s)": "derière la Pediatrie d'Owendo, Golf, IAI, Mindoubé I, mindoubé II, Owendo, Petit Village",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-06",
+          "Letras": "A",
+          "Eleitores": 157,
+          "Localidade(s)": "Bacota et, Bananier, Carriére, Chantier Modernes, Containeurs, Essassa, Gendarmerie d'Octra, La SNI, PK8, PK9, Sibang, Vinda Barria",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-07",
+          "Letras": "A",
+          "Eleitores": 146,
+          "Localidade(s)": "Alibandeng, Ambowé, Charbonnage, Derière Camp de Gaule, Bel Air",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-08",
+          "Letras": "A",
+          "Eleitores": 323,
+          "Localidade(s)": "1er Campernent, Angondjé Village, Avourbam, Cap Esterias, Cap Santa Clara, Delta, Okala Auberge, Okala Carrière, Sr. Savimbe",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GB-09",
+          "Letras": "A",
+          "Eleitores": 25,
+          "Localidade(s)": "Port Gentil",
+          "Local da(s) Mesa(s) de Voto": "Pot Gentil"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Guiné Equatorial",
+      "sigla": "GE",
+      "localidades": [
+        {
+          "Circunscrição": "GE-01",
+          "Letras": "A",
+          "Eleitores": 141,
+          "Localidade(s)": "Alcaide, Basupú, Basupú Fishtown, Buena, Buena Esperança I, Buena Esperança II, Campo Amor, Ela Nguema, Malabo, Niumbili, Sampaka",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        },
+        {
+          "Circunscrição": "GE-02",
+          "Letras": "A",
+          "Eleitores": 17,
+          "Localidade(s)": "Barios, Batete, Luba",
+          "Local da(s) Mesa(s) de Voto": "Bata"
+        },
+        {
+          "Circunscrição": "GE-03",
+          "Letras": "A",
+          "Eleitores": 57,
+          "Localidade(s)": "Bata, Mbini, Mongomo, Mongomoyem",
+          "Local da(s) Mesa(s) de Voto": "Mongomo"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Lembá",
+      "sigla": "LB",
+      "localidades": [
+        {
+          "Circunscrição": "LB-01",
+          "Letras": "A",
+          "Eleitores": 527,
+          "Localidade(s)": "Neves - Bairro de Rosema",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Neves"
+        },
+        {
+          "Circunscrição": "LB-01",
+          "Letras": "B",
+          "Eleitores": 466,
+          "Localidade(s)": "Neves - Bairro de Rosema",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Neves"
+        },
+        {
+          "Circunscrição": "LB-01",
+          "Letras": "C",
+          "Eleitores": 559,
+          "Localidade(s)": "Neves - Bairro de Rosema",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Neves"
+        },
+        {
+          "Circunscrição": "LB-01",
+          "Letras": "D",
+          "Eleitores": 521,
+          "Localidade(s)": "Neves - Bairro de Rosema",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Neves"
+        },
+        {
+          "Circunscrição": "LB-02",
+          "Letras": "A",
+          "Eleitores": 543,
+          "Localidade(s)": "Neves - Bairro Água Torna",
+          "Local da(s) Mesa(s) de Voto": "Tenda"
+        },
+        {
+          "Circunscrição": "LB-02",
+          "Letras": "B",
+          "Eleitores": 516,
+          "Localidade(s)": "Neves - Bairro Água Torna",
+          "Local da(s) Mesa(s) de Voto": "Tenda"
+        },
+        {
+          "Circunscrição": "LB-03",
+          "Letras": "A",
+          "Eleitores": 460,
+          "Localidade(s)": "Neves - Bairro Benga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária de Neves"
+        },
+        {
+          "Circunscrição": "LB-03",
+          "Letras": "B",
+          "Eleitores": 574,
+          "Localidade(s)": "Neves - Bairro Benga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária de Neves"
+        },
+        {
+          "Circunscrição": "LB-03",
+          "Letras": "C",
+          "Eleitores": 416,
+          "Localidade(s)": "Neves - Bairro Benga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária de Neves"
+        },
+        {
+          "Circunscrição": "LB-03",
+          "Letras": "D",
+          "Eleitores": 374,
+          "Localidade(s)": "Neves - Bairro Benga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária de Neves"
+        },
+        {
+          "Circunscrição": "LB-03",
+          "Letras": "E",
+          "Eleitores": 400,
+          "Localidade(s)": "Neves - Bairro Benga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária de Neves"
+        },
+        {
+          "Circunscrição": "LB-04",
+          "Letras": "A",
+          "Eleitores": 291,
+          "Localidade(s)": "Emília, Praia Ribeira palma, Roça Ribeira Funda, Roça Ribeira Palma",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Ribeira Funda"
+        },
+        {
+          "Circunscrição": "LB-05",
+          "Letras": "A",
+          "Eleitores": 186,
+          "Localidade(s)": "Roça Ribeira Palma, Roça Rosema, Santa Teresa",
+          "Local da(s) Mesa(s) de Voto": "Obô Rozema"
+        },
+        {
+          "Circunscrição": "LB-06",
+          "Letras": "A",
+          "Eleitores": 244,
+          "Localidade(s)": "Bom Sucesso, Fortunato",
+          "Local da(s) Mesa(s) de Voto": "Centro Recriativo de Bom Sucesso"
+        },
+        {
+          "Circunscrição": "LB-07",
+          "Letras": "A",
+          "Eleitores": 555,
+          "Localidade(s)": "Aribana, Monte Forte, Praia Ponta Figo, Roça Ponta Figo, Roça Ponta Figo",
+          "Local da(s) Mesa(s) de Voto": "Terraço Ponta Figo"
+        },
+        {
+          "Circunscrição": "LB-08",
+          "Letras": "A",
+          "Eleitores": 280,
+          "Localidade(s)": "Roça Generosa",
+          "Local da(s) Mesa(s) de Voto": "Terraço Generosa"
+        },
+        {
+          "Circunscrição": "LB-09",
+          "Letras": "A",
+          "Eleitores": 155,
+          "Localidade(s)": "Esprainha Praia, Manga Manga, Roça Cadão",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Esprainha"
+        },
+        {
+          "Circunscrição": "LB-10",
+          "Letras": "A",
+          "Eleitores": 456,
+          "Localidade(s)": "Roça Diogo Vaz",
+          "Local da(s) Mesa(s) de Voto": "Tenda"
+        },
+        {
+          "Circunscrição": "LB-11",
+          "Letras": "A",
+          "Eleitores": 92,
+          "Localidade(s)": "Maria Luísa",
+          "Local da(s) Mesa(s) de Voto": "Secab"
+        },
+        {
+          "Circunscrição": "LB-12",
+          "Letras": "A",
+          "Eleitores": 43,
+          "Localidade(s)": "Molundo",
+          "Local da(s) Mesa(s) de Voto": "Secab"
+        },
+        {
+          "Circunscrição": "LB-13",
+          "Letras": "A",
+          "Eleitores": 295,
+          "Localidade(s)": "Santa Clotilde, Santa Geny, São José",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Sta. Geny"
+        },
+        {
+          "Circunscrição": "LB-14",
+          "Letras": "A",
+          "Eleitores": 434,
+          "Localidade(s)": "Vila de de Santa Catarina",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Stª Catarina"
+        },
+        {
+          "Circunscrição": "LB-14",
+          "Letras": "B",
+          "Eleitores": 371,
+          "Localidade(s)": "Vila de de Santa Catarina",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Stª Catarina"
+        },
+        {
+          "Circunscrição": "LB-14",
+          "Letras": "C",
+          "Eleitores": 420,
+          "Localidade(s)": "Vila de de Santa Catarina",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Stª Catarina"
+        },
+        {
+          "Circunscrição": "LB-15",
+          "Letras": "A",
+          "Eleitores": 358,
+          "Localidade(s)": "Paga Fogo, Rio Ave, Roça Santa Catarina, S.João, S.Manuel",
+          "Local da(s) Mesa(s) de Voto": "Antigo Escritório de Stª Catarina"
+        },
+        {
+          "Circunscrição": "LB-16",
+          "Letras": "A",
+          "Eleitores": 287,
+          "Localidade(s)": "Binda, Boca Bela, Ponta Furada, Roça Lembá",
+          "Local da(s) Mesa(s) de Voto": "Creche de Roça Lembá"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Lobata",
+      "sigla": "LO",
+      "localidades": [
+        {
+          "Circunscrição": "LO-01",
+          "Letras": "A",
+          "Eleitores": 537,
+          "Localidade(s)": "Guadalupe, Vila Braga",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária Guadalupe"
+        },
+        {
+          "Circunscrição": "LO-01",
+          "Letras": "B",
+          "Eleitores": 563,
+          "Localidade(s)": "Guadalupe, Vila Braga",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária Guadalupe"
+        },
+        {
+          "Circunscrição": "LO-01",
+          "Letras": "C",
+          "Eleitores": 455,
+          "Localidade(s)": "Guadalupe, Vila Braga",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária Guadalupe"
+        },
+        {
+          "Circunscrição": "LO-01",
+          "Letras": "D",
+          "Eleitores": 395,
+          "Localidade(s)": "Guadalupe, Vila Braga",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária Guadalupe"
+        },
+        {
+          "Circunscrição": "LO-01",
+          "Letras": "E",
+          "Eleitores": 386,
+          "Localidade(s)": "Guadalupe, Vila Braga",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária Guadalupe"
+        },
+        {
+          "Circunscrição": "LO-02",
+          "Letras": "A",
+          "Eleitores": 409,
+          "Localidade(s)": "Praia das Conchas, Praia Guegue, Praia Mouro Peixe",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Mouro Peixe"
+        },
+        {
+          "Circunscrição": "LO-03",
+          "Letras": "A",
+          "Eleitores": 472,
+          "Localidade(s)": "Planca I, Planca II, Praia de Plancas, Roça Praia das Conchas, Saltado",
+          "Local da(s) Mesa(s) de Voto": "Escola da Praia das Conchas"
+        },
+        {
+          "Circunscrição": "LO-04",
+          "Letras": "A",
+          "Eleitores": 323,
+          "Localidade(s)": "Agua Sampaio, Santa Luzia",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Santa Luzia"
+        },
+        {
+          "Circunscrição": "LO-05",
+          "Letras": "A",
+          "Eleitores": 210,
+          "Localidade(s)": "Monte Carmo, Santa Clara",
+          "Local da(s) Mesa(s) de Voto": "Centro Jovem de Santa Clara"
+        },
+        {
+          "Circunscrição": "LO-06",
+          "Letras": "A",
+          "Eleitores": 285,
+          "Localidade(s)": "Água Coimbra, Boa Esperança, Caldeiras, Casa Campo, Chamiço, Pouso Alto",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Caldeiras"
+        },
+        {
+          "Circunscrição": "LO-07",
+          "Letras": "A",
+          "Eleitores": 353,
+          "Localidade(s)": "Agostinho Neto, Rio de Ouro Pequeno",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Agostinho Neto"
+        },
+        {
+          "Circunscrição": "LO-07",
+          "Letras": "B",
+          "Eleitores": 386,
+          "Localidade(s)": "Agostinho Neto, Rio de Ouro Pequeno",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Agostinho Neto"
+        },
+        {
+          "Circunscrição": "LO-08",
+          "Letras": "A",
+          "Eleitores": 229,
+          "Localidade(s)": "Canavial, São Carlos",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Canavial"
+        },
+        {
+          "Circunscrição": "LO-09",
+          "Letras": "A",
+          "Eleitores": 331,
+          "Localidade(s)": "Fernão Dias",
+          "Local da(s) Mesa(s) de Voto": "Centro Social"
+        },
+        {
+          "Circunscrição": "LO-10",
+          "Letras": "A",
+          "Eleitores": 509,
+          "Localidade(s)": "Micoló, Micoló Campo",
+          "Local da(s) Mesa(s) de Voto": "Centro Social"
+        },
+        {
+          "Circunscrição": "LO-10",
+          "Letras": "B",
+          "Eleitores": 496,
+          "Localidade(s)": "Micoló, Micoló Campo",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Micoló"
+        },
+        {
+          "Circunscrição": "LO-11",
+          "Letras": "A",
+          "Eleitores": 523,
+          "Localidade(s)": "Água Casada, Aldeia, Conde",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Micoló"
+        },
+        {
+          "Circunscrição": "LO-11",
+          "Letras": "B",
+          "Eleitores": 414,
+          "Localidade(s)": "Água Casada, Aldeia, Conde",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Conde"
+        },
+        {
+          "Circunscrição": "LO-11",
+          "Letras": "C",
+          "Eleitores": 389,
+          "Localidade(s)": "Água Casada, Aldeia, Conde",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Conde"
+        },
+        {
+          "Circunscrição": "LO-11",
+          "Letras": "D",
+          "Eleitores": 403,
+          "Localidade(s)": "Água Casada, Aldeia, Conde",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Conde"
+        },
+        {
+          "Circunscrição": "LO-12",
+          "Letras": "A",
+          "Eleitores": 354,
+          "Localidade(s)": "Bataló, Ilhéu, Laranjeira",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Conde"
+        },
+        {
+          "Circunscrição": "LO-13",
+          "Letras": "A",
+          "Eleitores": 401,
+          "Localidade(s)": "Santo Amaro",
+          "Local da(s) Mesa(s) de Voto": "Centro Social"
+        },
+        {
+          "Circunscrição": "LO-13",
+          "Letras": "B",
+          "Eleitores": 433,
+          "Localidade(s)": "Santo Amaro",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Santo Amaro"
+        },
+        {
+          "Circunscrição": "LO-14",
+          "Letras": "A",
+          "Eleitores": 361,
+          "Localidade(s)": "Bela V. F Governo, Bela Vista",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Santo Amaro"
+        },
+        {
+          "Circunscrição": "LO-15",
+          "Letras": "A",
+          "Eleitores": 411,
+          "Localidade(s)": "Changra, Vale dos Prazeres",
+          "Local da(s) Mesa(s) de Voto": "Centro Social de Bela Vista"
+        },
+        {
+          "Circunscrição": "LO-15",
+          "Letras": "B",
+          "Eleitores": 438,
+          "Localidade(s)": "Changra, Vale dos Prazeres",
+          "Local da(s) Mesa(s) de Voto": "Terraço Kuaça Kuaça"
+        },
+        {
+          "Circunscrição": "LO-16",
+          "Letras": "A",
+          "Eleitores": 384,
+          "Localidade(s)": "Maianço, Roça Maianço",
+          "Local da(s) Mesa(s) de Voto": "Terraço Kuaça Kuaça"
+        },
+        {
+          "Circunscrição": "LO-16",
+          "Letras": "B",
+          "Eleitores": 402,
+          "Localidade(s)": "Maianço, Roça Maianço",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Senhor Bati Al"
+        },
+        {
+          "Circunscrição": "LO-17",
+          "Letras": "A",
+          "Eleitores": 536,
+          "Localidade(s)": "Desejada, Matias Pina",
+          "Local da(s) Mesa(s) de Voto": "Terraço do Senhor Bati Al"
+        },
+        {
+          "Circunscrição": "LO-18",
+          "Letras": "A",
+          "Eleitores": 549,
+          "Localidade(s)": "Boa Entrada",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Desejada"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Luxemburgo",
+      "sigla": "LU",
+      "localidades": [
+        {
+          "Circunscrição": "LU-01",
+          "Letras": "A",
+          "Eleitores": 64,
+          "Localidade(s)": "Luxemburgo",
+          "Local da(s) Mesa(s) de Voto": "Espaço do Sr. Rider Lisboa"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Mé-Zóchi",
+      "sigla": "MZ",
+      "localidades": [
+        {
+          "Circunscrição": "MZ-01",
+          "Letras": "A",
+          "Eleitores": 480,
+          "Localidade(s)": "Água Cotó, Água Pequenina, Bar Bom Jau, Cabala Mole, Cidade da Trindade, Roça Vila Moura",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária M. Sousa Ponte"
+        },
+        {
+          "Circunscrição": "MZ-01",
+          "Letras": "B",
+          "Eleitores": 327,
+          "Localidade(s)": "Água Cotó, Água Pequenina, Bar Bom Jau, Cabala Mole, Cidade da Trindade, Roça Vila Moura",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária M. Sousa Ponte"
+        },
+        {
+          "Circunscrição": "MZ-01",
+          "Letras": "C",
+          "Eleitores": 570,
+          "Localidade(s)": "Água Cotó, Água Pequenina, Bar Bom Jau, Cabala Mole, Cidade da Trindade, Roça Vila Moura",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária M. Sousa Ponte"
+        },
+        {
+          "Circunscrição": "MZ-01",
+          "Letras": "D",
+          "Eleitores": 538,
+          "Localidade(s)": "Água Cotó, Água Pequenina, Bar Bom Jau, Cabala Mole, Cidade da Trindade, Roça Vila Moura",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária M. Sousa Ponte"
+        },
+        {
+          "Circunscrição": "MZ-01",
+          "Letras": "E",
+          "Eleitores": 567,
+          "Localidade(s)": "Água Cotó, Água Pequenina, Bar Bom Jau, Cabala Mole, Cidade da Trindade, Roça Vila Moura",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária M. Sousa Ponte"
+        },
+        {
+          "Circunscrição": "MZ-02",
+          "Letras": "A",
+          "Eleitores": 448,
+          "Localidade(s)": "Antigo Campo de Futebol da Roça Santy, Belém Centro, Pau Quiabo até entrada de Belém, Ubua Flor",
+          "Local da(s) Mesa(s) de Voto": "Ubua Flor"
+        },
+        {
+          "Circunscrição": "MZ-02",
+          "Letras": "B",
+          "Eleitores": 435,
+          "Localidade(s)": "Antigo Campo de Futebol da Roça Santy, Belém Centro, Pau Quiabo até entrada de Belém, Ubua Flor",
+          "Local da(s) Mesa(s) de Voto": "Ubua Flor"
+        },
+        {
+          "Circunscrição": "MZ-03",
+          "Letras": "A",
+          "Eleitores": 564,
+          "Localidade(s)": "Água Mamblêblê, Água Seca, Belém centro, Mulerndú",
+          "Local da(s) Mesa(s) de Voto": "Belém"
+        },
+        {
+          "Circunscrição": "MZ-04",
+          "Letras": "A",
+          "Eleitores": 424,
+          "Localidade(s)": "Fugifala, Galo Cantá, Piedade Cima, Roça Piedade (Catap)",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária M. M. Margarido"
+        },
+        {
+          "Circunscrição": "MZ-04",
+          "Letras": "B",
+          "Eleitores": 440,
+          "Localidade(s)": "Fugifala, Galo Cantá, Piedade Cima, Roça Piedade (Catap)",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária M. M. Margarido"
+        },
+        {
+          "Circunscrição": "MZ-05",
+          "Letras": "A",
+          "Eleitores": 579,
+          "Localidade(s)": "Batepá, Linda Vista, Margão, Vanguarda",
+          "Local da(s) Mesa(s) de Voto": "Escola de Batepá"
+        },
+        {
+          "Circunscrição": "MZ-05",
+          "Letras": "B",
+          "Eleitores": 541,
+          "Localidade(s)": "Batepá, Linda Vista, Margão, Vanguarda",
+          "Local da(s) Mesa(s) de Voto": "Escola de Batepá"
+        },
+        {
+          "Circunscrição": "MZ-06",
+          "Letras": "A",
+          "Eleitores": 489,
+          "Localidade(s)": "António Soares, Cassuma, Pedro Mateus",
+          "Local da(s) Mesa(s) de Voto": "Centro Comunitário de António Soares"
+        },
+        {
+          "Circunscrição": "MZ-07",
+          "Letras": "A",
+          "Eleitores": 518,
+          "Localidade(s)": "Bem Posta, Bom Sucesso, Mongó, Monte Café, Nova Moca, Novo Destino, S.José, S.Nicolau, Saudade, Terra Batata",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Monte Café"
+        },
+        {
+          "Circunscrição": "MZ-07",
+          "Letras": "B",
+          "Eleitores": 435,
+          "Localidade(s)": "Bem Posta, Bom Sucesso, Mongó, Monte Café, Nova Moca, Novo Destino, S.José, S.Nicolau, Saudade, Terra Batata",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Monte Café"
+        },
+        {
+          "Circunscrição": "MZ-07",
+          "Letras": "C",
+          "Eleitores": 422,
+          "Localidade(s)": "Bem Posta, Bom Sucesso, Mongó, Monte Café, Nova Moca, Novo Destino, S.José, S.Nicolau, Saudade, Terra Batata",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Monte Café"
+        },
+        {
+          "Circunscrição": "MZ-08",
+          "Letras": "A",
+          "Eleitores": 367,
+          "Localidade(s)": "Água Cola, Água Pata, Amoreira Grande, Capela, Gleba, Obô Coelho",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Capela"
+        },
+        {
+          "Circunscrição": "MZ-08",
+          "Letras": "B",
+          "Eleitores": 377,
+          "Localidade(s)": "Água Cola, Água Pata, Amoreira Grande, Capela, Gleba, Obô Coelho",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Capela"
+        },
+        {
+          "Circunscrição": "MZ-09",
+          "Letras": "A",
+          "Eleitores": 317,
+          "Localidade(s)": "Água Criola, António Vaz, Favorita, Madeira, Jardins das Quintas das palmeiras, Torres Dias",
+          "Local da(s) Mesa(s) de Voto": "Jardins das Quintas das Palmeiras"
+        },
+        {
+          "Circunscrição": "MZ-09",
+          "Letras": "B",
+          "Eleitores": 305,
+          "Localidade(s)": "Água Criola, António Vaz, Favorita, Madeira, Jardins das Quintas das palmeiras",
+          "Local da(s) Mesa(s) de Voto": "Jardins das Quintas das Palmeiras"
+        },
+        {
+          "Circunscrição": "MZ-10",
+          "Letras": "A",
+          "Eleitores": 319,
+          "Localidade(s)": "Água Moreira, Diogo Simão, Rio Lima, Stª António boca boca",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária Diogo Simão"
+        },
+        {
+          "Circunscrição": "MZ-10",
+          "Letras": "B",
+          "Eleitores": 314,
+          "Localidade(s)": "Água Moreira, Diogo Simão, Rio Lima, Stª António boca boca",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária Diogo Simão"
+        },
+        {
+          "Circunscrição": "MZ-11",
+          "Letras": "A",
+          "Eleitores": 437,
+          "Localidade(s)": "Bobo Cativo, Bobo Forro, Ubua Cocónja",
+          "Local da(s) Mesa(s) de Voto": "Escola de Bôbô-Fôrro"
+        },
+        {
+          "Circunscrição": "MZ-11",
+          "Letras": "B",
+          "Eleitores": 472,
+          "Localidade(s)": "Bobo Cativo, Bobo Forro, Ubua Cocónja",
+          "Local da(s) Mesa(s) de Voto": "Escola de Bôbô-Fôrro"
+        },
+        {
+          "Circunscrição": "MZ-11",
+          "Letras": "C",
+          "Eleitores": 501,
+          "Localidade(s)": "Bobo Cativo, Bobo Forro, Ubua Cocónja",
+          "Local da(s) Mesa(s) de Voto": "Escola de Bôbô-Fôrro"
+        },
+        {
+          "Circunscrição": "MZ-12",
+          "Letras": "A",
+          "Eleitores": 532,
+          "Localidade(s)": "Campo Livre, Feliz Destino, Obô Izaquente",
+          "Local da(s) Mesa(s) de Voto": "Terraço Carramba de Obô Izaquente"
+        },
+        {
+          "Circunscrição": "MZ-13",
+          "Letras": "A",
+          "Eleitores": 368,
+          "Localidade(s)": "Água Clara, Quime quime., Stª.Cruz, Vila de Madalena",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Madalena"
+        },
+        {
+          "Circunscrição": "MZ-13",
+          "Letras": "B",
+          "Eleitores": 374,
+          "Localidade(s)": "Água Clara, Quime quime., Stª.Cruz, Vila de Madalena",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Madalena"
+        },
+        {
+          "Circunscrição": "MZ-14",
+          "Letras": "A",
+          "Eleitores": 511,
+          "Localidade(s)": "Mateus Angolares, Otótó, San Dômbá, San Lanza, Vista Alegre",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Otótó"
+        },
+        {
+          "Circunscrição": "MZ-15",
+          "Letras": "A",
+          "Eleitores": 559,
+          "Localidade(s)": "Santa Margarida e as antigas depedências.",
+          "Local da(s) Mesa(s) de Voto": "Escola de Santa Margarida"
+        },
+        {
+          "Circunscrição": "MZ-16",
+          "Letras": "A",
+          "Eleitores": 465,
+          "Localidade(s)": "Água Telha, Monte Macaco, Poto",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Poto"
+        },
+        {
+          "Circunscrição": "MZ-17",
+          "Letras": "A",
+          "Eleitores": 346,
+          "Localidade(s)": "Canga, Cruzeiro Centro até Curva do Sro.Cumbú",
+          "Local da(s) Mesa(s) de Voto": "Loja Senhor Zeca"
+        },
+        {
+          "Circunscrição": "MZ-17",
+          "Letras": "B",
+          "Eleitores": 421,
+          "Localidade(s)": "Canga, Cruzeiro Centro até Curva do Sro.Cumbú",
+          "Local da(s) Mesa(s) de Voto": "Loja Senhor Zeca"
+        },
+        {
+          "Circunscrição": "MZ-17",
+          "Letras": "C",
+          "Eleitores": 439,
+          "Localidade(s)": "Canga, Cruzeiro Centro até Curva do Sro.Cumbú",
+          "Local da(s) Mesa(s) de Voto": "Loja Senhor Zeca"
+        },
+        {
+          "Circunscrição": "MZ-18",
+          "Letras": "A",
+          "Eleitores": 307,
+          "Localidade(s)": "Milagrosa, Quintas das Flores, Santa Clara, Santa Luzia",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Milagrosa"
+        },
+        {
+          "Circunscrição": "MZ-19",
+          "Letras": "A",
+          "Eleitores": 350,
+          "Localidade(s)": "Água das Belas, Bombaim, Java, Plateu, Roça Abade, Roça Nova, S.Januário, Santa Adelaide",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Java"
+        },
+        {
+          "Circunscrição": "MZ-20",
+          "Letras": "A",
+          "Eleitores": 514,
+          "Localidade(s)": "Água D'Aqo, Água Francisca, Cabeça de Água, Folha Fede, Monte Leão, Roça Amélia, Roça Laura",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Folha Fede"
+        },
+        {
+          "Circunscrição": "MZ-20",
+          "Letras": "B",
+          "Eleitores": 491,
+          "Localidade(s)": "Água D'Aqo, Água Francisca, Cabeça de Água, Folha Fede, Monte Leão, Roça Amélia, Roça Laura",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Folha Fede"
+        },
+        {
+          "Circunscrição": "MZ-21",
+          "Letras": "A",
+          "Eleitores": 557,
+          "Localidade(s)": "Cruzeiro baixo, Lemos Cima, Libá do quê, Libá do quê, Obô Longo, Pau Sabão",
+          "Local da(s) Mesa(s) de Voto": "Terraço Stela"
+        },
+        {
+          "Circunscrição": "MZ-21",
+          "Letras": "B",
+          "Eleitores": 554,
+          "Localidade(s)": "Cruzeiro baixo, Lemos Cima, Libá do quê, Libá do quê, Obô Longo, Pau Sabão",
+          "Local da(s) Mesa(s) de Voto": "Terraço Stela"
+        },
+        {
+          "Circunscrição": "MZ-22",
+          "Letras": "A",
+          "Eleitores": 313,
+          "Localidade(s)": "Lemos, Roça Filipina",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Lemos"
+        },
+        {
+          "Circunscrição": "MZ-22",
+          "Letras": "B",
+          "Eleitores": 309,
+          "Localidade(s)": "Lemos, Roça Filipina",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Lemos"
+        },
+        {
+          "Circunscrição": "MZ-23",
+          "Letras": "A",
+          "Eleitores": 389,
+          "Localidade(s)": "Caixão Grande Centro, Melhorada",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Caixão Grande"
+        },
+        {
+          "Circunscrição": "MZ-23",
+          "Letras": "B",
+          "Eleitores": 438,
+          "Localidade(s)": "Caixão Grande Centro, Melhorada",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Caixão Grande"
+        },
+        {
+          "Circunscrição": "MZ-23",
+          "Letras": "C",
+          "Eleitores": 472,
+          "Localidade(s)": "Caixão Grande Centro, Melhorada",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Caixão Grande"
+        },
+        {
+          "Circunscrição": "MZ-24",
+          "Letras": "A",
+          "Eleitores": 313,
+          "Localidade(s)": "cabeça cal cima, Margarida Manuel",
+          "Local da(s) Mesa(s) de Voto": "Terraço Margarida Manuel"
+        },
+        {
+          "Circunscrição": "MZ-24",
+          "Letras": "B",
+          "Eleitores": 307,
+          "Localidade(s)": "cabeça cal cima, Margarida Manuel",
+          "Local da(s) Mesa(s) de Voto": "Terraço Margarida Manuel"
+        },
+        {
+          "Circunscrição": "MZ-25",
+          "Letras": "A",
+          "Eleitores": 305,
+          "Localidade(s)": "Amparo, Lucinha Cola, Quifinda",
+          "Local da(s) Mesa(s) de Voto": "PAM"
+        },
+        {
+          "Circunscrição": "MZ-25",
+          "Letras": "B",
+          "Eleitores": 313,
+          "Localidade(s)": "Amparo, Lucinha Cola, Quifinda",
+          "Local da(s) Mesa(s) de Voto": "PAM"
+        },
+        {
+          "Circunscrição": "MZ-26",
+          "Letras": "A",
+          "Eleitores": 366,
+          "Localidade(s)": "Monta alegre, Monta alegre, Montalvão, Pedro Paiva, San Maria",
+          "Local da(s) Mesa(s) de Voto": "Cruzamento de S. Maria"
+        },
+        {
+          "Circunscrição": "MZ-26",
+          "Letras": "B",
+          "Eleitores": 381,
+          "Localidade(s)": "Monta alegre, Monta alegre, Montalvão, Pedro Paiva, San Maria",
+          "Local da(s) Mesa(s) de Voto": "Cruzamento de S. Maria"
+        },
+        {
+          "Circunscrição": "MZ-27",
+          "Letras": "A",
+          "Eleitores": 316,
+          "Localidade(s)": "Mato Andim Cima, San.Fenícia Centro, Ubua Quime",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de San Fenícia"
+        },
+        {
+          "Circunscrição": "MZ-28",
+          "Letras": "A",
+          "Eleitores": 522,
+          "Localidade(s)": "Cola Grande Cima, Riba Mato Vagi Lidó, Vagí não passa",
+          "Local da(s) Mesa(s) de Voto": "Terraço de Ribeira Mato"
+        },
+        {
+          "Circunscrição": "MZ-28",
+          "Letras": "B",
+          "Eleitores": 479,
+          "Localidade(s)": "Cola grande Cima, Riba Mato Vagí Lidó, Vagí não passa",
+          "Local da(s) Mesa(s) de Voto": "Terraço de Ribeira Mato"
+        },
+        {
+          "Circunscrição": "MZ-29",
+          "Letras": "A",
+          "Eleitores": 504,
+          "Localidade(s)": "Água Serra, Bombom até a porta do Senhor Paquet, Cova Barro, Vagi Glangi",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Bombom"
+        },
+        {
+          "Circunscrição": "MZ-29",
+          "Letras": "B",
+          "Eleitores": 521,
+          "Localidade(s)": "Água Serra, Bombom até a porta do Senhor Paquet, Cova Barro, Vagi Glangi",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Bombom"
+        },
+        {
+          "Circunscrição": "MZ-29",
+          "Letras": "C",
+          "Eleitores": 408,
+          "Localidade(s)": "Água Serra, Bombom até a porta do Senhor Paquet, Cova Barro, Vagi Glangi",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Bombom"
+        },
+        {
+          "Circunscrição": "MZ-29",
+          "Letras": "D",
+          "Eleitores": 345,
+          "Localidade(s)": "Água Serra, Bombom até a porta do Senhor Paquet, Cova Barro, Vagi Glangi",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Bombom"
+        },
+        {
+          "Circunscrição": "MZ-29",
+          "Letras": "E",
+          "Eleitores": 358,
+          "Localidade(s)": "Água Serra, Bombom até a porta do Senhor Paquet, Cova Barro, Vagi Glangi",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Bombom"
+        },
+        {
+          "Circunscrição": "MZ-30",
+          "Letras": "A",
+          "Eleitores": 390,
+          "Localidade(s)": "Bugué e arredores, Riba d'Oque, Senhor Paquete",
+          "Local da(s) Mesa(s) de Voto": "Casa do Senhor AWA"
+        },
+        {
+          "Circunscrição": "MZ-31",
+          "Letras": "A",
+          "Eleitores": 517,
+          "Localidade(s)": "Caminho Novo, Peté Peté, San Guembú, San Ponjata, Surn Dindi",
+          "Local da(s) Mesa(s) de Voto": "Baraca de Sra. Andreza"
+        },
+        {
+          "Circunscrição": "MZ-31",
+          "Letras": "B",
+          "Eleitores": 511,
+          "Localidade(s)": "Caminho Novo, Peté Peté, San Guembú, San Ponjata, Surn Dindi",
+          "Local da(s) Mesa(s) de Voto": "Baraca de Sra. Andreza"
+        },
+        {
+          "Circunscrição": "MZ-32",
+          "Letras": "A",
+          "Eleitores": 484,
+          "Localidade(s)": "Cola Grande baixo, Vila de Almas",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Almas"
+        },
+        {
+          "Circunscrição": "MZ-32",
+          "Letras": "B",
+          "Eleitores": 539,
+          "Localidade(s)": "Cola Grande baixo, Vila de Almas",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Almas"
+        },
+        {
+          "Circunscrição": "MZ-32",
+          "Letras": "C",
+          "Eleitores": 585,
+          "Localidade(s)": "Cola Grande baixo, Vila de Almas",
+          "Local da(s) Mesa(s) de Voto": "Escola Básica de Almas"
+        },
+        {
+          "Circunscrição": "MZ-33",
+          "Letras": "A",
+          "Eleitores": 467,
+          "Localidade(s)": "Praia Melão, Praia Melão Baixo",
+          "Local da(s) Mesa(s) de Voto": "Básica de Praia Melão"
+        },
+        {
+          "Circunscrição": "MZ-33",
+          "Letras": "B",
+          "Eleitores": 521,
+          "Localidade(s)": "Praia Melão, Praia Melão Baixo",
+          "Local da(s) Mesa(s) de Voto": "Básica de Praia Melão"
+        },
+        {
+          "Circunscrição": "MZ-33",
+          "Letras": "C",
+          "Eleitores": 422,
+          "Localidade(s)": "Praia Melão, Praia Melão Baixo",
+          "Local da(s) Mesa(s) de Voto": "Básica de Praia Melão"
+        },
+        {
+          "Circunscrição": "MZ-33",
+          "Letras": "D",
+          "Eleitores": 335,
+          "Localidade(s)": "Praia Melão, Praia Melão Baixo",
+          "Local da(s) Mesa(s) de Voto": "Básica de Praia Melão"
+        },
+        {
+          "Circunscrição": "MZ-33",
+          "Letras": "E",
+          "Eleitores": 359,
+          "Localidade(s)": "Praia Melão, Praia Melão Baixo",
+          "Local da(s) Mesa(s) de Voto": "Básica de Praia Melão"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Portugal",
+      "sigla": "PO",
+      "localidades": [
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "A",
+          "Eleitores": 570,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "B",
+          "Eleitores": 489,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "C",
+          "Eleitores": 516,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "D",
+          "Eleitores": 403,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "E",
+          "Eleitores": 497,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "A",
+          "Eleitores": 448,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "B",
+          "Eleitores": 466,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "C",
+          "Eleitores": 524,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "D",
+          "Eleitores": 541,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "E",
+          "Eleitores": 478,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "A",
+          "Eleitores": 365,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "B",
+          "Eleitores": 464,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "C",
+          "Eleitores": 412,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-04",
+          "Letras": "A",
+          "Eleitores": 548,
+          "Localidade(s)": "Alto do Lumiar, Bairro de Angola, Charneca do Lumiar, Fetais, Galinheiras, Lumiar",
+          "Local da(s) Mesa(s) de Voto": "Embaixada de São Tomé e Príncipe"
+        },
+        {
+          "Circunscrição": "PO-04",
+          "Letras": "B",
+          "Eleitores": 527,
+          "Localidade(s)": "Alto do Lumiar, Bairro de Angola, Charneca do Lumiar, Fetais, Galinheiras, Lumiar",
+          "Local da(s) Mesa(s) de Voto": "Embaixada de São Tomé e Príncipe"
+        },
+        {
+          "Circunscrição": "PO-05",
+          "Letras": "A",
+          "Eleitores": 552,
+          "Localidade(s)": "Almada, Corroios, Costa da Caparica, Cova da Piedade, Feijó, Laranjeiro, Quinta do Chegadinho",
+          "Local da(s) Mesa(s) de Voto": "Laranjeiro"
+        },
+        {
+          "Circunscrição": "PO-05",
+          "Letras": "B",
+          "Eleitores": 596,
+          "Localidade(s)": "Almada, Corroios, Costa da Caparica, Cova da Piedade, Feijó, Laranjeiro, Quinta do Chegadinho, Santa Marta de Corroios, Sobreda, Trafaria",
+          "Local da(s) Mesa(s) de Voto": "Laranjeiro"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "A",
+          "Eleitores": 455,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "B",
+          "Eleitores": 463,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "C",
+          "Eleitores": 526,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "D",
+          "Eleitores": 379,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-07",
+          "Letras": "A",
+          "Eleitores": 449,
+          "Localidade(s)": "Baixa da Banheira, Barreiro, Cidade Sol, Coina, Montijo, Vale de Amoreira",
+          "Local da(s) Mesa(s) de Voto": "Barreiro"
+        },
+        {
+          "Circunscrição": "PO-07",
+          "Letras": "B",
+          "Eleitores": 425,
+          "Localidade(s)": "Baixa da Banheira, Barreiro, Cidade Sol, Coina, Montijo, Vale de Amoreira",
+          "Local da(s) Mesa(s) de Voto": "Barreiro"
+        },
+        {
+          "Circunscrição": "PO-08",
+          "Letras": "A",
+          "Eleitores": 364,
+          "Localidade(s)": "Braga, Bragança, Mirandela, Penafiel, Porto, São João da Madeira",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-08",
+          "Letras": "B",
+          "Eleitores": 348,
+          "Localidade(s)": "Braga, Bragança, Mirandela, Penafiel, Porto, São João da Madeira",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-09",
+          "Letras": "A",
+          "Eleitores": 587,
+          "Localidade(s)": "Aveiro, Oliveira de Hospital, Oliveira do Bairro",
+          "Local da(s) Mesa(s) de Voto": "Aveiro"
+        },
+        {
+          "Circunscrição": "PO-10",
+          "Letras": "A",
+          "Eleitores": 110,
+          "Localidade(s)": "Viana de Castelo",
+          "Local da(s) Mesa(s) de Voto": "Viana de Castelo"
+        },
+        {
+          "Circunscrição": "PO-11",
+          "Letras": "A",
+          "Eleitores": 111,
+          "Localidade(s)": "Castelo Branco, Guarda, Idanha-a-Nova",
+          "Local da(s) Mesa(s) de Voto": "Idanha-a-Nova"
+        },
+        {
+          "Circunscrição": "PO-12",
+          "Letras": "A",
+          "Eleitores": 109,
+          "Localidade(s)": "Leiria",
+          "Local da(s) Mesa(s) de Voto": "Leiria"
+        },
+        {
+          "Circunscrição": "PO-13",
+          "Letras": "A",
+          "Eleitores": 203,
+          "Localidade(s)": "Nazaré",
+          "Local da(s) Mesa(s) de Voto": "Nazaré"
+        },
+        {
+          "Circunscrição": "PO-14",
+          "Letras": "A",
+          "Eleitores": 50,
+          "Localidade(s)": "",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-15",
+          "Letras": "A",
+          "Eleitores": 178,
+          "Localidade(s)": "Coimbra, Grande Coimbra",
+          "Local da(s) Mesa(s) de Voto": "Coimbra"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Região Autónoma do Príncipe",
+      "sigla": "RAP",
+      "localidades": [
+        {
+          "Circunscrição": "RAP-01",
+          "Letras": "A",
+          "Eleitores": 596,
+          "Localidade(s)": "Alojamento, Arredores do Estádio, Budo Budo, Conceição, Reta do Cemitério, Reta do Porto Real, Samizanga, Santo António II",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural do Príncipe"
+        },
+        {
+          "Circunscrição": "RAP-01",
+          "Letras": "B",
+          "Eleitores": 585,
+          "Localidade(s)": "Alojamento, Arredores do Estádio, Budo Budo, Conceição, Reta do Cemitério, Reta do Porto Real, Samizanga, Santo António II",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural do Príncipe"
+        },
+        {
+          "Circunscrição": "RAP-02",
+          "Letras": "A",
+          "Eleitores": 600,
+          "Localidade(s)": "Chimalo, Parque Velho, R.Forminga",
+          "Local da(s) Mesa(s) de Voto": "Escola Secundária Padrão"
+        },
+        {
+          "Circunscrição": "RAP-03",
+          "Letras": "A",
+          "Eleitores": 330,
+          "Localidade(s)": "Bom Viver, Horta Cana",
+          "Local da(s) Mesa(s) de Voto": "Comunicação e Transporte"
+        },
+        {
+          "Circunscrição": "RAP-04",
+          "Letras": "A",
+          "Eleitores": 435,
+          "Localidade(s)": "Rua dos Trabalhadores",
+          "Local da(s) Mesa(s) de Voto": "Jardim da Infância"
+        },
+        {
+          "Circunscrição": "RAP-05",
+          "Letras": "A",
+          "Eleitores": 407,
+          "Localidade(s)": "Hospital Velho",
+          "Local da(s) Mesa(s) de Voto": "Jardim da Infância"
+        },
+        {
+          "Circunscrição": "RAP-06",
+          "Letras": "A",
+          "Eleitores": 582,
+          "Localidade(s)": "Nova Estrela, Santo Cristo",
+          "Local da(s) Mesa(s) de Voto": "Escola Nova Estrela"
+        },
+        {
+          "Circunscrição": "RAP-07",
+          "Letras": "A",
+          "Eleitores": 211,
+          "Localidade(s)": "Praia Abade",
+          "Local da(s) Mesa(s) de Voto": "Escola Primária de Abade"
+        },
+        {
+          "Circunscrição": "RAP-08",
+          "Letras": "A",
+          "Eleitores": 219,
+          "Localidade(s)": "Gaspar",
+          "Local da(s) Mesa(s) de Voto": "Jardim da Infância"
+        },
+        {
+          "Circunscrição": "RAP-09",
+          "Letras": "A",
+          "Eleitores": 588,
+          "Localidade(s)": "Picão, Roça Paciência",
+          "Local da(s) Mesa(s) de Voto": "Escola de Praia Inhame"
+        },
+        {
+          "Circunscrição": "RAP-10",
+          "Letras": "A",
+          "Eleitores": 301,
+          "Localidade(s)": "Aeroporto",
+          "Local da(s) Mesa(s) de Voto": "Escola de Aeroporto"
+        },
+        {
+          "Circunscrição": "RAP-10",
+          "Letras": "B",
+          "Eleitores": 312,
+          "Localidade(s)": "Aeroporto",
+          "Local da(s) Mesa(s) de Voto": "Escola de Aeroporto"
+        },
+        {
+          "Circunscrição": "RAP-11",
+          "Letras": "A",
+          "Eleitores": 405,
+          "Localidade(s)": "Sundy",
+          "Local da(s) Mesa(s) de Voto": "Terra Prometida"
+        },
+        {
+          "Circunscrição": "RAP-12",
+          "Letras": "A",
+          "Eleitores": 483,
+          "Localidade(s)": "Pincaté, Porto Real",
+          "Local da(s) Mesa(s) de Voto": "Escola de Porto Real"
+        },
+        {
+          "Circunscrição": "RAP-13",
+          "Letras": "A",
+          "Eleitores": 123,
+          "Localidade(s)": "S.Joaquim",
+          "Local da(s) Mesa(s) de Voto": "Jardim de Infância"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Reino Unido",
+      "sigla": "UK",
+      "localidades": [
+        {
+          "Circunscrição": "UK-01",
+          "Letras": "A",
+          "Eleitores": 405,
+          "Localidade(s)": "Barking, Bedford, Dagenham, Estham, Ilford, Luton, Romford",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-02",
+          "Letras": "A",
+          "Eleitores": 246,
+          "Localidade(s)": "Dalston, Hackney Central, Seven Sisters, Stoke Newington, Walthamstow",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-03",
+          "Letras": "A",
+          "Eleitores": 99,
+          "Localidade(s)": "Briston, Camberwell, Croydon, Greenwich, Lambeth, Lewisham, Peckham, Woolwich",
+          "Local da(s) Mesa(s) de Voto": "Camberwell"
+        },
+        {
+          "Circunscrição": "UK-04",
+          "Letras": "A",
+          "Eleitores": 12,
+          "Localidade(s)": "Ealing Broadway, Fisbury Park, Golders Green, Hounslow, Wembley, Wood Green",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-05",
+          "Letras": "A",
+          "Eleitores": 156,
+          "Localidade(s)": "Bury St Edmunds, Chelmsford, Colchester, Ipswich",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-06",
+          "Letras": "A",
+          "Eleitores": 77,
+          "Localidade(s)": "Great Yarmouth, Lowestoft, Norwich",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-07",
+          "Letras": "A",
+          "Eleitores": 24,
+          "Localidade(s)": "Cambridge, Northamptton",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-08",
+          "Letras": "A",
+          "Eleitores": 110,
+          "Localidade(s)": "Birmingham, Bristol, Coventry, Derby, Exeter, Grantham, Leicester, Nottingham, Oxford, Peterborough, Wolverhampton, Worcester",
+          "Local da(s) Mesa(s) de Voto": "Birmingham"
+        },
+        {
+          "Circunscrição": "UK-09",
+          "Letras": "A",
+          "Eleitores": 251,
+          "Localidade(s)": "Salford, Bolton, Bury, Liverpool, Manchester, Rochdale, Stockport, Stretford, Warrington",
+          "Local da(s) Mesa(s) de Voto": "Manchester"
+        },
+        {
+          "Circunscrição": "UK-10",
+          "Letras": "A",
+          "Eleitores": 140,
+          "Localidade(s)": "Bradford, Doncaster, Harrogate, HullI, Leeds, Sheffield, York",
+          "Local da(s) Mesa(s) de Voto": "Leeds"
+        },
+        {
+          "Circunscrição": "UK-12",
+          "Letras": "A",
+          "Eleitores": 49,
+          "Localidade(s)": "Chester, Wrexham",
+          "Local da(s) Mesa(s) de Voto": "Manchester"
+        }
+      ]
+    }
+  }
+]
