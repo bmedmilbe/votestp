@@ -72,3 +72,5 @@ secrets.json
 Thumbs.db
 
 support/
+
+dev.py
