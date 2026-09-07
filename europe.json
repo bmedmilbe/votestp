@@ -1,0 +1,373 @@
+[
+  {
+    "distrito": {
+      "name": "Belgica",
+      "sigla": "BE",
+      "localidades": [
+        {
+          "Circunscrição": "BE-01",
+          "Letras": "A",
+          "Eleitores": 118,
+          "Localidade(s)": "Bruxelas",
+          "Local da(s) Mesa(s) de Voto": "Embaixada"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "França",
+      "sigla": "FR",
+      "localidades": [
+        {
+          "Circunscrição": "FR-01",
+          "Letras": "A",
+          "Eleitores": 210,
+          "Localidade(s)": "Paris-Creteil",
+          "Local da(s) Mesa(s) de Voto": "Consulado - Paris"
+        },
+        {
+          "Circunscrição": "FR-06",
+          "Letras": "A",
+          "Eleitores": 54,
+          "Localidade(s)": "Nice",
+          "Local da(s) Mesa(s) de Voto": "França - Nice"
+        }
+      ]
+    }
+  },
+  {
+    "distrito": {
+      "name": "Luxemburgo",
+      "sigla": "LU",
+      "localidades": [
+        {
+          "Circunscrição": "LU-01",
+          "Letras": "A",
+          "Eleitores": 64,
+          "Localidade(s)": "Luxemburgo",
+          "Local da(s) Mesa(s) de Voto": "Espaço do Sr. Rider Lisboa"
+        }
+      ]
+    }
+  },
+
+  {
+    "distrito": {
+      "name": "Portugal",
+      "sigla": "PO",
+      "localidades": [
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "A",
+          "Eleitores": 570,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "B",
+          "Eleitores": 489,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "C",
+          "Eleitores": 516,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "D",
+          "Eleitores": 403,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-01",
+          "Letras": "E",
+          "Eleitores": 497,
+          "Localidade(s)": "Cascais, Cidade Nova, Grande Lisboa, Loures, Odivelas, Oeiras, Santo António dos Cavaleiros",
+          "Local da(s) Mesa(s) de Voto": "Centro Cultural de Quinta de Mocho"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "A",
+          "Eleitores": 448,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "B",
+          "Eleitores": 466,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "C",
+          "Eleitores": 524,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "D",
+          "Eleitores": 541,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-02",
+          "Letras": "E",
+          "Eleitores": 478,
+          "Localidade(s)": "Algueirão, Amadora, Brandoa, Cacém, Damaia, Mem Martins, Queluz, Reboleira, Rio de Mouro, São Marcos",
+          "Local da(s) Mesa(s) de Voto": "Câmara de Amadora"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "A",
+          "Eleitores": 365,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "B",
+          "Eleitores": 464,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-03",
+          "Letras": "C",
+          "Eleitores": 412,
+          "Localidade(s)": "Apelação, Bobadela, Camarate, Catujal, Portela de Sacavém, Prior Velho, Unhos, Urbanização Terraço da Ponte (Ex Quinta do Mocho), Vale da Figueira, Vialonga",
+          "Local da(s) Mesa(s) de Voto": "Apelação"
+        },
+        {
+          "Circunscrição": "PO-04",
+          "Letras": "A",
+          "Eleitores": 548,
+          "Localidade(s)": "Alto do Lumiar, Bairro de Angola, Charneca do Lumiar, Fetais, Galinheiras, Lumiar",
+          "Local da(s) Mesa(s) de Voto": "Embaixada de São Tomé e Príncipe"
+        },
+        {
+          "Circunscrição": "PO-04",
+          "Letras": "B",
+          "Eleitores": 527,
+          "Localidade(s)": "Alto do Lumiar, Bairro de Angola, Charneca do Lumiar, Fetais, Galinheiras, Lumiar",
+          "Local da(s) Mesa(s) de Voto": "Embaixada de São Tomé e Príncipe"
+        },
+        {
+          "Circunscrição": "PO-05",
+          "Letras": "A",
+          "Eleitores": 552,
+          "Localidade(s)": "Almada, Corroios, Costa da Caparica, Cova da Piedade, Feijó, Laranjeiro, Quinta do Chegadinho",
+          "Local da(s) Mesa(s) de Voto": "Laranjeiro"
+        },
+        {
+          "Circunscrição": "PO-05",
+          "Letras": "B",
+          "Eleitores": 596,
+          "Localidade(s)": "Almada, Corroios, Costa da Caparica, Cova da Piedade, Feijó, Laranjeiro, Quinta do Chegadinho, Santa Marta de Corroios, Sobreda, Trafaria",
+          "Local da(s) Mesa(s) de Voto": "Laranjeiro"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "A",
+          "Eleitores": 455,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "B",
+          "Eleitores": 463,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "C",
+          "Eleitores": 526,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-06",
+          "Letras": "D",
+          "Eleitores": 379,
+          "Localidade(s)": "Amora, Arrentela, Cruz de Pau, Fogueteiro, Forros de Amora, Paivas, Quinta da Princesa, Seixal, Torre da Marinha",
+          "Local da(s) Mesa(s) de Voto": "Amora"
+        },
+        {
+          "Circunscrição": "PO-07",
+          "Letras": "A",
+          "Eleitores": 449,
+          "Localidade(s)": "Baixa da Banheira, Barreiro, Cidade Sol, Coina, Montijo, Vale de Amoreira",
+          "Local da(s) Mesa(s) de Voto": "Barreiro"
+        },
+        {
+          "Circunscrição": "PO-07",
+          "Letras": "B",
+          "Eleitores": 425,
+          "Localidade(s)": "Baixa da Banheira, Barreiro, Cidade Sol, Coina, Montijo, Vale de Amoreira",
+          "Local da(s) Mesa(s) de Voto": "Barreiro"
+        },
+        {
+          "Circunscrição": "PO-08",
+          "Letras": "A",
+          "Eleitores": 364,
+          "Localidade(s)": "Braga, Bragança, Mirandela, Penafiel, Porto, São João da Madeira",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-08",
+          "Letras": "B",
+          "Eleitores": 348,
+          "Localidade(s)": "Braga, Bragança, Mirandela, Penafiel, Porto, São João da Madeira",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-09",
+          "Letras": "A",
+          "Eleitores": 587,
+          "Localidade(s)": "Aveiro, Oliveira de Hospital, Oliveira do Bairro",
+          "Local da(s) Mesa(s) de Voto": "Aveiro"
+        },
+        {
+          "Circunscrição": "PO-10",
+          "Letras": "A",
+          "Eleitores": 110,
+          "Localidade(s)": "Viana de Castelo",
+          "Local da(s) Mesa(s) de Voto": "Viana de Castelo"
+        },
+        {
+          "Circunscrição": "PO-11",
+          "Letras": "A",
+          "Eleitores": 111,
+          "Localidade(s)": "Castelo Branco, Guarda, Idanha-a-Nova",
+          "Local da(s) Mesa(s) de Voto": "Idanha-a-Nova"
+        },
+        {
+          "Circunscrição": "PO-12",
+          "Letras": "A",
+          "Eleitores": 109,
+          "Localidade(s)": "Leiria",
+          "Local da(s) Mesa(s) de Voto": "Leiria"
+        },
+        {
+          "Circunscrição": "PO-13",
+          "Letras": "A",
+          "Eleitores": 203,
+          "Localidade(s)": "Nazaré",
+          "Local da(s) Mesa(s) de Voto": "Nazaré"
+        },
+        {
+          "Circunscrição": "PO-14",
+          "Letras": "A",
+          "Eleitores": 50,
+          "Localidade(s)": "",
+          "Local da(s) Mesa(s) de Voto": "Porto"
+        },
+        {
+          "Circunscrição": "PO-15",
+          "Letras": "A",
+          "Eleitores": 178,
+          "Localidade(s)": "Coimbra, Grande Coimbra",
+          "Local da(s) Mesa(s) de Voto": "Coimbra"
+        }
+      ]
+    }
+  },
+
+  {
+    "distrito": {
+      "name": "Reino Unido",
+      "sigla": "UK",
+      "localidades": [
+        {
+          "Circunscrição": "UK-01",
+          "Letras": "A",
+          "Eleitores": 405,
+          "Localidade(s)": "Barking, Bedford, Dagenham, Estham, Ilford, Luton, Romford",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-02",
+          "Letras": "A",
+          "Eleitores": 246,
+          "Localidade(s)": "Dalston, Hackney Central, Seven Sisters, Stoke Newington, Walthamstow",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-03",
+          "Letras": "A",
+          "Eleitores": 99,
+          "Localidade(s)": "Briston, Camberwell, Croydon, Greenwich, Lambeth, Lewisham, Peckham, Woolwich",
+          "Local da(s) Mesa(s) de Voto": "Camberwell"
+        },
+        {
+          "Circunscrição": "UK-04",
+          "Letras": "A",
+          "Eleitores": 12,
+          "Localidade(s)": "Ealing Broadway, Fisbury Park, Golders Green, Hounslow, Wembley, Wood Green",
+          "Local da(s) Mesa(s) de Voto": "Seven Sisters"
+        },
+        {
+          "Circunscrição": "UK-05",
+          "Letras": "A",
+          "Eleitores": 156,
+          "Localidade(s)": "Bury St Edmunds, Chelmsford, Colchester, Ipswich",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-06",
+          "Letras": "A",
+          "Eleitores": 77,
+          "Localidade(s)": "Great Yarmouth, Lowestoft, Norwich",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-07",
+          "Letras": "A",
+          "Eleitores": 24,
+          "Localidade(s)": "Cambridge, Northamptton",
+          "Local da(s) Mesa(s) de Voto": "Ipswich"
+        },
+        {
+          "Circunscrição": "UK-08",
+          "Letras": "A",
+          "Eleitores": 110,
+          "Localidade(s)": "Birmingham, Bristol, Coventry, Derby, Exeter, Grantham, Leicester, Nottingham, Oxford, Peterborough, Wolverhampton, Worcester",
+          "Local da(s) Mesa(s) de Voto": "Birmingham"
+        },
+        {
+          "Circunscrição": "UK-09",
+          "Letras": "A",
+          "Eleitores": 251,
+          "Localidade(s)": "Salford, Bolton, Bury, Liverpool, Manchester, Rochdale, Stockport, Stretford, Warrington",
+          "Local da(s) Mesa(s) de Voto": "Manchester"
+        },
+        {
+          "Circunscrição": "UK-10",
+          "Letras": "A",
+          "Eleitores": 140,
+          "Localidade(s)": "Bradford, Doncaster, Harrogate, HullI, Leeds, Sheffield, York",
+          "Local da(s) Mesa(s) de Voto": "Leeds"
+        },
+        {
+          "Circunscrição": "UK-12",
+          "Letras": "A",
+          "Eleitores": 49,
+          "Localidade(s)": "Chester, Wrexham",
+          "Local da(s) Mesa(s) de Voto": "Manchester"
+        }
+      ]
+    }
+  }
+]
