@@ -43,7 +43,7 @@ class District(models.Model):
         ('DIASPORA_AFRICA', 'Diaspora Africa'),
     ]
             
-    district_type = models.CharField(max_length=20, choices=DISTRIC_TYPE_CHOICES, default=DISTRIC_TYPE_CHOICES['SAO TOME'])
+    district_type = models.CharField(max_length=20, choices=DISTRIC_TYPE_CHOICES, default='SAO TOME')
           
     class Meta:
         unique_together = ['name', 'sigla', 'country']

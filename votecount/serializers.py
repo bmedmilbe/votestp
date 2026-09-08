@@ -5,497 +5,445 @@ from .models import (
     Agent,
     Circunscricao,
     Country,
+    DeputiesPerCountryPerParty,
+    DeputiesPerDistrictPerParty,
     District,
-    ElectionStats,
-    HondtCalculation,
-    OriginalDataImport,
     Party,
     PollingStation,
+    ResultPerCircunscricaoPerParty,
+    ResultPerCountryPerParty,
+    ResultPerDistrictPerParty,
     VoteEntry,
-    VoteResult,
     VoteTable,
 )
 
 # ============================================
-# SERIALIZERS BÁSICOS
+# BASE SERIALIZERS
 # ============================================
 
+class AgentSerializer(serializers.ModelSerializer):
+    """Serializer for Agent model"""
+    user_email = serializers.EmailField(source='user.email', read_only=True)
+    user_full_name = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Agent
+        fields = ['id', 'user', 'user_email', 'user_full_name', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
+    
+    def get_user_full_name(self, obj):
+        return f"{obj.user.first_name} {obj.user.last_name}".strip()
+
+
 class CountrySerializer(serializers.ModelSerializer):
+    """Serializer for Country model"""
+    districts_count = serializers.IntegerField(read_only=True)
+    vote_tables_count = serializers.SerializerMethodField()
+    
     class Meta:
         model = Country
-        fields = ['id', 'name', 'code', 'total_deputies']
+        fields = ['id', 'name', 'code', 'total_deputies', 'districts_count', 'vote_tables_count']
         read_only_fields = ['id']
+    
+    def get_vote_tables_count(self, obj):
+        return VoteTable.objects.filter(circunscricao__district__country=obj).count()
 
 
 class DistrictSerializer(serializers.ModelSerializer):
+    """Serializer for District model"""
     country_name = serializers.CharField(source='country.name', read_only=True)
     country_code = serializers.CharField(source='country.code', read_only=True)
+    circunscricoes_count = serializers.IntegerField(read_only=True)
+    vote_tables_count = serializers.SerializerMethodField()
     
     class Meta:
         model = District
-        fields = ['id', 'name', 'sigla', 'country', 'country_name', 'country_code', 'total_deputies']
+        fields = ['id', 'name', 'sigla', 'country', 'country_name', 'country_code',
+                  'total_deputies', 'district_type', 'circunscricoes_count', 
+                  'vote_tables_count']
         read_only_fields = ['id']
+    
+    def get_vote_tables_count(self, obj):
+        return VoteTable.objects.filter(circunscricao__district=obj).count()
 
 
 class CircunscricaoSerializer(serializers.ModelSerializer):
+    """Serializer for Circunscricao model"""
     district_name = serializers.CharField(source='district.name', read_only=True)
     district_sigla = serializers.CharField(source='district.sigla', read_only=True)
+    country_name = serializers.CharField(source='district.country.name', read_only=True)
+    polling_stations_count = serializers.IntegerField(read_only=True)
+    vote_tables_count = serializers.IntegerField(read_only=True)
+    total_voters = serializers.SerializerMethodField()
     
     class Meta:
         model = Circunscricao
-        fields = ['id', 'code', 'name', 'district', 'district_name', 'district_sigla']
+        fields = ['id', 'code', 'name', 'district', 'district_name', 'district_sigla',
+                  'country_name', 'polling_stations_count', 'vote_tables_count', 
+                  'total_voters']
         read_only_fields = ['id']
+    
+    def get_total_voters(self, obj):
+        return obj.vote_tables.aggregate(total=Sum('total_voters'))['total'] or 0
 
 
 class PollingStationSerializer(serializers.ModelSerializer):
+    """Serializer for PollingStation model"""
     circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True)
+    circunscricao_name = serializers.CharField(source='circunscricao.name', read_only=True)
+    district_name = serializers.CharField(source='circunscricao.district.name', read_only=True)
+    country_name = serializers.CharField(source='circunscricao.district.country.name', read_only=True)
+    vote_tables_count = serializers.IntegerField(read_only=True)
     
     class Meta:
         model = PollingStation
-        fields = ['id', 'name', 'circunscricao', 'circunscricao_code']
+        fields = ['id', 'name', 'circunscricao', 'circunscricao_code', 
+                  'circunscricao_name', 'district_name', 'country_name',
+                  'vote_tables_count']
         read_only_fields = ['id']
 
 
 class PartySerializer(serializers.ModelSerializer):
+    """Serializer for Party model"""
+    vote_entries_count = serializers.IntegerField(read_only=True)
+    total_votes = serializers.SerializerMethodField()
+    
     class Meta:
         model = Party
-        fields = ['id', 'name', 'abbreviation', 'color', 'is_active', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'abbreviation', 'color', 'is_active', 
+                  'created_at', 'updated_at', 'vote_entries_count', 'total_votes']
         read_only_fields = ['id', 'created_at', 'updated_at']
+    
+    def get_total_votes(self, obj):
+        return obj.vote_entries.aggregate(total=Sum('votes_count'))['total'] or 0
 
 
 # ============================================
-# SERIALIZERS PARA VOTE TABLE E ENTRIES
+# VOTE TABLE AND VOTE ENTRY SERIALIZERS
 # ============================================
 
 class VoteEntrySerializer(serializers.ModelSerializer):
+    """Serializer for VoteEntry model"""
     party_name = serializers.CharField(source='party.name', read_only=True)
     party_abbreviation = serializers.CharField(source='party.abbreviation', read_only=True)
     party_color = serializers.CharField(source='party.color', read_only=True)
-    percentage = serializers.SerializerMethodField()
+    vote_table_code = serializers.CharField(source='vote_table.code', read_only=True)
+    circunscricao_code = serializers.CharField(
+        source='vote_table.circunscricao.code', read_only=True
+    )
     
     class Meta:
         model = VoteEntry
-        fields = [
-            'id', 'vote_table', 'party', 'party_name', 'party_abbreviation', 
-            'party_color', 'votes_count', 'percentage', 'recorded_at', 'updated_at'
-        ]
+        fields = ['id', 'vote_table', 'vote_table_code', 'circunscricao_code',
+                  'party', 'party_name', 'party_abbreviation', 'party_color',
+                  'votes_count', 'recorded_at', 'updated_at']
         read_only_fields = ['id', 'recorded_at', 'updated_at']
-    
-    def get_percentage(self, obj):
-        """Calcular percentagem de votos para este partido na mesa"""
-        vote_table = obj.vote_table
-        if vote_table and vote_table.valid_votes > 0:
-            return round((obj.votes_count / vote_table.valid_votes) * 100, 2)
-        return 0.0
-
-
-class VoteEntryCreateSerializer(serializers.Serializer):
-    """Serializer para criar/atualizar entradas de voto"""
-    party_abbreviation = serializers.CharField(max_length=20)
-    votes = serializers.IntegerField(min_value=0)
-    
-    def validate_votes(self, value):
-        if value < 0:
-            raise serializers.ValidationError("Votes cannot be negative")
-        return value
 
 
 class VoteTableSerializer(serializers.ModelSerializer):
+    """Serializer for VoteTable model"""
     circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True)
     circunscricao_name = serializers.CharField(source='circunscricao.name', read_only=True)
     polling_station_name = serializers.CharField(source='polling_station.name', read_only=True)
+    district_name = serializers.CharField(
+        source='circunscricao.district.name', read_only=True
+    )
+    country_name = serializers.CharField(
+        source='circunscricao.district.country.name', read_only=True
+    )
     vote_entries = VoteEntrySerializer(many=True, read_only=True)
-    total_valid_votes = serializers.SerializerMethodField()
-    voter_turnout = serializers.SerializerMethodField()
+    total_votes_cast = serializers.SerializerMethodField()
+    turnout_percentage = serializers.SerializerMethodField()
     
     class Meta:
         model = VoteTable
-        fields = [
-            'id', 'code', 'circunscricao', 'circunscricao_code', 'circunscricao_name',
-            'polling_station', 'polling_station_name', 'total_voters', 'valid_votes',
-            'invalid_votes', 'blank_votes', 'location_details', 'vote_entries',
-            'total_valid_votes', 'voter_turnout', 'recorded_at', 'updated_at'
-        ]
+        fields = ['id', 'code', 'circunscricao', 'circunscricao_code', 
+                  'circunscricao_name', 'polling_station', 'polling_station_name',
+                  'district_name', 'country_name', 'total_voters', 'valid_votes',
+                  'invalid_votes', 'blank_votes', 'location_details', 
+                  'recorded_at', 'updated_at', 'vote_entries', 
+                  'total_votes_cast', 'turnout_percentage']
         read_only_fields = ['id', 'recorded_at', 'updated_at']
     
-    def get_total_valid_votes(self, obj):
-        """Obter total de votos válidos"""
-        return obj.valid_votes
+    def get_total_votes_cast(self, obj):
+        return obj.vote_entries.aggregate(total=Sum('votes_count'))['total'] or 0
     
-    def get_voter_turnout(self, obj):
-        """Calcular percentagem de participação"""
+    def get_turnout_percentage(self, obj):
+        total_votes = obj.vote_entries.aggregate(total=Sum('votes_count'))['total'] or 0
         if obj.total_voters > 0:
-            return round((obj.valid_votes / obj.total_voters) * 100, 2)
+            return round((total_votes / obj.total_voters) * 100, 2)
         return 0.0
 
 
 class VoteTableCreateSerializer(serializers.ModelSerializer):
-    """Serializer para criar uma nova mesa de voto"""
+    """Serializer for creating VoteTable"""
     
     class Meta:
         model = VoteTable
-        fields = [
-            'code', 'circunscricao', 'polling_station', 'total_voters',
-            'invalid_votes', 'blank_votes', 'location_details'
-        ]
+        fields = ['id', 'code', 'circunscricao', 'polling_station', 
+                  'total_voters', 'valid_votes', 'invalid_votes', 
+                  'blank_votes', 'location_details']
+        read_only_fields = ['id']
 
 
 # ============================================
-# SERIALIZERS PARA SUBMISSÃO DE RESULTADOS
+# RESULT AND DEPUTIES SERIALIZERS
 # ============================================
 
-class VoteSubmissionSerializer(serializers.Serializer):
-    """Serializer para submissão de resultados por agentes"""
-    vote_table_code = serializers.CharField(max_length=20)
-    circunscricao_code = serializers.CharField(max_length=20)
-    results = VoteEntryCreateSerializer(many=True)
-    invalid_votes = serializers.IntegerField(min_value=0, default=0)
-    blank_votes = serializers.IntegerField(min_value=0, default=0)
-    
-    def validate(self, data):
-        """Validar dados submetidos"""
-        # Verificar se vote_table_code existe
-        vote_table_code = data.get('vote_table_code')
-        circunscricao_code = data.get('circunscricao_code')
-        
-        # Verificar se os votos não excedem o total de eleitores
-        try:
-            vote_table = VoteTable.objects.get(
-                code=vote_table_code,
-                circunscricao__code=circunscricao_code
-            )
-            total_voters = vote_table.total_voters
-        except VoteTable.DoesNotExist:
-            total_voters = None
-        
-        if total_voters:
-            total_votes_submitted = sum(r.get('votes', 0) for r in data.get('results', []))
-            total_votes_submitted += data.get('invalid_votes', 0)
-            total_votes_submitted += data.get('blank_votes', 0)
-            
-            if total_votes_submitted > total_voters:
-                raise serializers.ValidationError(
-                    f"Total votes ({total_votes_submitted}) exceeds registered voters ({total_voters})"
-                )
-        
-        return data
-
-
-class VoteSubmissionResponseSerializer(serializers.Serializer):
-    """Serializer para resposta de submissão"""
-    message = serializers.CharField()
-    vote_table_code = serializers.CharField()
-    total_valid_votes = serializers.IntegerField()
-    invalid_votes = serializers.IntegerField()
-    blank_votes = serializers.IntegerField()
-
-
-# ============================================
-# SERIALIZERS PARA RESULTADOS AGREGADOS
-# ============================================
-
-class VoteResultSerializer(serializers.ModelSerializer):
+class ResultPerPartySerializer(serializers.ModelSerializer):
+    """Serializer for results per party"""
+    party_id = serializers.IntegerField(source='party.id', read_only=True)
     party_name = serializers.CharField(source='party.name', read_only=True)
     party_abbreviation = serializers.CharField(source='party.abbreviation', read_only=True)
     party_color = serializers.CharField(source='party.color', read_only=True)
-    circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True, allow_null=True)
-    district_name = serializers.CharField(source='district.name', read_only=True, allow_null=True)
-    percentage = serializers.SerializerMethodField()
-    result_type_display = serializers.CharField(source='get_result_type_display', read_only=True)
     
     class Meta:
-        model = VoteResult
-        fields = [
-            'id', 'result_type', 'result_type_display', 'party', 'party_name',
-            'party_abbreviation', 'party_color', 'circunscricao', 'circunscricao_code',
-            'district', 'district_name', 'vote_table', 'total_votes',
-            'deputies_allocated', 'percentage', 'calculated_at', 'updated_at'
-        ]
-        read_only_fields = ['id', 'calculated_at', 'updated_at']
+        model = ResultPerCountryPerParty  # Works for all Result models
+        fields = ['id', 'party_id', 'party_name', 'party_abbreviation', 
+                  'party_color', 'result']
+
+
+class DeputiesPerPartySerializer(serializers.ModelSerializer):
+    """Serializer for deputies per party"""
+    party_id = serializers.IntegerField(source='party.id', read_only=True)
+    party_name = serializers.CharField(source='party.name', read_only=True)
+    party_abbreviation = serializers.CharField(source='party.abbreviation', read_only=True)
+    party_color = serializers.CharField(source='party.color', read_only=True)
     
-    def get_percentage(self, obj):
-        """Calcular percentagem de votos para este partido"""
-        # Buscar total de votos no mesmo nível
-        total_votes = 0
-        if obj.result_type == 'COUNTRY':
-            total_votes = VoteResult.objects.filter(
-                result_type='COUNTRY',
-                country=obj.country
-            ).aggregate(total=Sum('total_votes'))['total'] or 0
-        elif obj.result_type == 'DISTRICT' and obj.district:
-            total_votes = VoteResult.objects.filter(
-                result_type='DISTRICT',
-                district=obj.district
-            ).aggregate(total=Sum('total_votes'))['total'] or 0
-        elif obj.result_type == 'CIRCUNSCRICAO' and obj.circunscricao:
-            total_votes = VoteResult.objects.filter(
-                result_type='CIRCUNSCRICAO',
-                circunscricao=obj.circunscricao
-            ).aggregate(total=Sum('total_votes'))['total'] or 0
-        elif obj.result_type == 'TABLE' and obj.vote_table:
-            total_votes = VoteResult.objects.filter(
-                result_type='TABLE',
-                vote_table=obj.vote_table
-            ).aggregate(total=Sum('total_votes'))['total'] or 0
-        
-        if total_votes > 0:
-            return round((obj.total_votes / total_votes) * 100, 2)
+    class Meta:
+        model = DeputiesPerCountryPerParty  # Works for all Deputies models
+        fields = ['id', 'party_id', 'party_name', 'party_abbreviation', 
+                  'party_color', 'deputies']
+
+
+# ============================================
+# NESTED SERIALIZERS FOR COMPLEX RESPONSES
+# ============================================
+
+class NestedVoteEntrySerializer(serializers.ModelSerializer):
+    """Nested VoteEntry serializer for detailed responses"""
+    party = PartySerializer(read_only=True)
+    
+    class Meta:
+        model = VoteEntry
+        fields = ['id', 'party', 'votes_count', 'recorded_at']
+        read_only_fields = ['id', 'recorded_at']
+
+
+class NestedVoteTableSerializer(serializers.ModelSerializer):
+    """Nested VoteTable serializer with vote entries"""
+    vote_entries = NestedVoteEntrySerializer(many=True, read_only=True)
+    circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True)
+    polling_station_name = serializers.CharField(source='polling_station.name', read_only=True)
+    total_votes_cast = serializers.SerializerMethodField()
+    turnout_percentage = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = VoteTable
+        fields = ['id', 'code', 'circunscricao_code', 'polling_station_name',
+                  'total_voters', 'valid_votes', 'invalid_votes', 'blank_votes',
+                  'location_details', 'recorded_at', 'vote_entries',
+                  'total_votes_cast', 'turnout_percentage']
+    
+    def get_total_votes_cast(self, obj):
+        return obj.vote_entries.aggregate(total=Sum('votes_count'))['total'] or 0
+    
+    def get_turnout_percentage(self, obj):
+        total_votes = obj.vote_entries.aggregate(total=Sum('votes_count'))['total'] or 0
+        if obj.total_voters > 0:
+            return round((total_votes / obj.total_voters) * 100, 2)
         return 0.0
 
 
-class PartyResultSerializer(serializers.Serializer):
-    """Serializer para resultados por partido"""
-    party = serializers.CharField()
-    party_name = serializers.CharField()
-    party_color = serializers.CharField()
-    votes = serializers.IntegerField()
-    percentage = serializers.FloatField()
-    deputies = serializers.IntegerField()
-
-
-class AggregatedResultSerializer(serializers.Serializer):
-    """Serializer para resultados agregados por nível"""
-    level = serializers.CharField()
-    name = serializers.CharField()
-    total_votes = serializers.IntegerField()
-    total_deputies = serializers.IntegerField(required=False)
-    results = PartyResultSerializer(many=True)
-
-
-# ============================================
-# SERIALIZERS PARA MÉTODO DE HONDT
-# ============================================
-
-class HondtCalculationSerializer(serializers.ModelSerializer):
-    party_name = serializers.CharField(source='party.name', read_only=True)
-    party_abbreviation = serializers.CharField(source='party.abbreviation', read_only=True)
-    party_color = serializers.CharField(source='party.color', read_only=True)
+class NestedCircunscricaoSerializer(serializers.ModelSerializer):
+    """Nested Circunscricao serializer with vote tables and results"""
+    vote_tables = NestedVoteTableSerializer(many=True, read_only=True)
+    results = serializers.SerializerMethodField()
     district_name = serializers.CharField(source='district.name', read_only=True)
-    district_sigla = serializers.CharField(source='district.sigla', read_only=True)
+    total_voters = serializers.SerializerMethodField()
     
     class Meta:
-        model = HondtCalculation
-        fields = [
-            'id', 'district', 'district_name', 'district_sigla', 'party',
-            'party_name', 'party_abbreviation', 'party_color', 'total_votes',
-            'deputies_allocated', 'calculation_round', 'calculated_at'
-        ]
-        read_only_fields = ['id', 'calculated_at']
+        model = Circunscricao
+        fields = ['id', 'code', 'name', 'district_name', 'vote_tables', 
+                  'results', 'total_voters']
+    
+    def get_results(self, obj):
+        results = ResultPerCircunscricaoPerParty.objects.filter(
+            circunscricao=obj
+        ).select_related('party')
+        return ResultPerPartySerializer(results, many=True).data
+    
+    def get_total_voters(self, obj):
+        return obj.vote_tables.aggregate(total=Sum('total_voters'))['total'] or 0
 
 
-class HondtCalculationRequestSerializer(serializers.Serializer):
-    """Serializer para requisição de cálculo de Hondt"""
-    country_code = serializers.CharField(max_length=10, default='STP')
-    total_seats = serializers.IntegerField(min_value=1, default=55)
-
-
-class HondtResultSerializer(serializers.Serializer):
-    """Serializer para resultado do método de Hondt"""
-    district = serializers.CharField()
-    district_sigla = serializers.CharField()
-    total_deputies = serializers.IntegerField()
-    parties = serializers.ListField(
-        child=serializers.DictField()
-    )
-
-
-class HondtDetailSerializer(serializers.Serializer):
-    """Serializer para detalhes do cálculo de Hondt"""
-    total_deputies = serializers.IntegerField()
-    calculations = HondtCalculationSerializer(many=True)
-    by_district = serializers.ListField(
-        child=serializers.DictField(),
-        required=False
-    )
-
-
-# ============================================
-# SERIALIZERS PARA ESTATÍSTICAS
-# ============================================
-
-class ElectionStatsSerializer(serializers.ModelSerializer):
+class NestedDistrictSerializer(serializers.ModelSerializer):
+    """Nested District serializer with circunscricoes, vote tables, results and deputies"""
+    circunscricoes = NestedCircunscricaoSerializer(many=True, read_only=True)
+    vote_tables = serializers.SerializerMethodField()
+    results = serializers.SerializerMethodField()
+    deputies = serializers.SerializerMethodField()
     country_name = serializers.CharField(source='country.name', read_only=True)
-    country_code = serializers.CharField(source='country.code', read_only=True)
-    voter_turnout_percentage = serializers.SerializerMethodField()
+    total_voters = serializers.SerializerMethodField()
     
     class Meta:
-        model = ElectionStats
-        fields = [
-            'id', 'country', 'country_name', 'country_code',
-            'total_voters', 'total_valid_votes', 'total_invalid_votes',
-            'total_blank_votes', 'voter_turnout', 'voter_turnout_percentage',
-            'total_deputies', 'calculated_at', 'updated_at'
-        ]
-        read_only_fields = ['id', 'calculated_at', 'updated_at']
+        model = District
+        fields = ['id', 'name', 'sigla', 'country_name', 'total_deputies', 
+                  'district_type', 'circunscricoes', 'vote_tables', 'results', 
+                  'deputies', 'total_voters']
     
-    def get_voter_turnout_percentage(self, obj):
-        """Retornar percentagem de participação formatada"""
-        return round(obj.voter_turnout, 2)
+    def get_vote_tables(self, obj):
+        vote_tables = VoteTable.objects.filter(circunscricao__district=obj)
+        return NestedVoteTableSerializer(vote_tables, many=True).data
+    
+    def get_results(self, obj):
+        results = ResultPerDistrictPerParty.objects.filter(
+            district=obj
+        ).select_related('party')
+        return ResultPerPartySerializer(results, many=True).data
+    
+    def get_deputies(self, obj):
+        deputies = DeputiesPerDistrictPerParty.objects.filter(
+            district=obj
+        ).select_related('party')
+        return DeputiesPerPartySerializer(deputies, many=True).data
+    
+    def get_total_voters(self, obj):
+        return VoteTable.objects.filter(
+            circunscricao__district=obj
+        ).aggregate(total=Sum('total_voters'))['total'] or 0
 
 
-class DashboardStatsSerializer(serializers.Serializer):
-    """Serializer para estatísticas do dashboard"""
-    election_stats = serializers.DictField()
-    deputy_distribution = serializers.ListField(
-        child=serializers.DictField()
-    )
-    district_votes = serializers.ListField(
-        child=serializers.DictField()
-    )
-    top_parties = serializers.ListField(
-        child=serializers.DictField()
-    )
-    recent_submissions = serializers.ListField(
-        child=serializers.DictField()
-    )
+class NestedCountrySerializer(serializers.ModelSerializer):
+    """Nested Country serializer with districts, results and deputies"""
+    districts = NestedDistrictSerializer(many=True, read_only=True)
+    results = serializers.SerializerMethodField()
+    deputies = serializers.SerializerMethodField()
+    total_voters = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Country
+        fields = ['id', 'name', 'code', 'total_deputies', 'districts', 
+                  'results', 'deputies', 'total_voters']
+    
+    def get_results(self, obj):
+        results = ResultPerCountryPerParty.objects.filter(
+            country=obj
+        ).select_related('party')
+        return ResultPerPartySerializer(results, many=True).data
+    
+    def get_deputies(self, obj):
+        deputies = DeputiesPerCountryPerParty.objects.filter(
+            country=obj
+        ).select_related('party')
+        return DeputiesPerPartySerializer(deputies, many=True).data
+    
+    def get_total_voters(self, obj):
+        return VoteTable.objects.filter(
+            circunscricao__district__country=obj
+        ).aggregate(total=Sum('total_voters'))['total'] or 0
 
 
 # ============================================
-# SERIALIZERS PARA RELATÓRIOS
+# SUMMARY AND AGGREGATION SERIALIZERS
 # ============================================
 
-class ReportSummarySerializer(serializers.Serializer):
-    """Serializer para resumo do relatório"""
+class VoteTableSummarySerializer(serializers.Serializer):
+    """Serializer for vote table summary"""
+    code = serializers.CharField()
     total_voters = serializers.IntegerField()
-    total_valid_votes = serializers.IntegerField()
-    voter_turnout = serializers.FloatField()
-    total_deputies = serializers.IntegerField()
-
-
-class PartyReportSerializer(serializers.Serializer):
-    """Serializer para relatório de partidos"""
-    party = serializers.CharField()
-    abbreviation = serializers.CharField()
-    votes = serializers.IntegerField()
-    percentage = serializers.FloatField()
-    deputies = serializers.IntegerField()
-
-
-class DistrictReportSerializer(serializers.Serializer):
-    """Serializer para relatório de distritos"""
-    district = serializers.CharField()
-    sigla = serializers.CharField()
-    total_votes = serializers.IntegerField()
-    deputies = serializers.IntegerField()
-
-
-class FullReportSerializer(serializers.Serializer):
-    """Serializer para relatório completo"""
-    report_type = serializers.CharField()
-    generated_at = serializers.DateTimeField()
-    country = serializers.CharField()
-    summary = ReportSummarySerializer()
-    party_results = PartyReportSerializer(many=True)
-    district_results = DistrictReportSerializer(many=True)
-
-
-class SummaryReportSerializer(serializers.Serializer):
-    """Serializer para relatório resumido"""
-    report_type = serializers.CharField()
-    generated_at = serializers.DateTimeField()
-    country = serializers.CharField()
-    total_voters = serializers.IntegerField()
-    total_valid_votes = serializers.IntegerField()
-    total_invalid_votes = serializers.IntegerField()
-    total_blank_votes = serializers.IntegerField()
-    voter_turnout = serializers.FloatField()
-    total_deputies = serializers.IntegerField()
-    top_parties = PartyReportSerializer(many=True)
-    districts_summary = serializers.ListField(
-        child=serializers.DictField()
-    )
-
-
-# ============================================
-# SERIALIZERS AUXILIARES
-# ============================================
-
-class AgentSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(source='user.email', read_only=True)
-    username = serializers.CharField(source='user.username', read_only=True)
-    first_name = serializers.CharField(source='user.first_name', read_only=True)
-    last_name = serializers.CharField(source='user.last_name', read_only=True)
-    
-    class Meta:
-        model = Agent
-        fields = ['id', 'user', 'email', 'username', 'first_name', 'last_name', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at']
-
-
-class OriginalDataImportSerializer(serializers.ModelSerializer):
-    imported_by_email = serializers.CharField(source='imported_by', read_only=True)
-    
-    class Meta:
-        model = OriginalDataImport
-        fields = ['id', 'json_data', 'import_date', 'imported_by', 'imported_by_email', 'notes']
-        read_only_fields = ['id', 'import_date']
-
-
-class VoteTableSubmissionStatusSerializer(serializers.Serializer):
-    """Serializer para status de submissão de mesas"""
-    vote_table_code = serializers.CharField()
-    submitted = serializers.BooleanField()
-    submitted_at = serializers.DateTimeField(allow_null=True)
-    submitted_by = serializers.CharField(allow_null=True)
     valid_votes = serializers.IntegerField()
-    status = serializers.CharField()
+    invalid_votes = serializers.IntegerField()
+    blank_votes = serializers.IntegerField()
+    total_votes_cast = serializers.IntegerField()
+    turnout_percentage = serializers.FloatField()
+    circunscricao = serializers.CharField()
+    polling_station = serializers.CharField()
 
 
-# ============================================
-# SERIALIZERS PARA VALIDAÇÃO
-# ============================================
-
-class VoteValidationSerializer(serializers.Serializer):
-    """Serializer para validar dados de voto antes da submissão"""
-    vote_table_code = serializers.CharField(max_length=20)
-    circunscricao_code = serializers.CharField(max_length=20)
-    total_voters = serializers.IntegerField()
-    total_submitted_votes = serializers.IntegerField()
-    difference = serializers.IntegerField()
-    is_valid = serializers.BooleanField()
-    warnings = serializers.ListField(
-        child=serializers.CharField(),
-        required=False
-    )
-
-
-class BulkVoteSubmissionSerializer(serializers.Serializer):
-    """Serializer para submissão em lote de várias mesas"""
-    submissions = VoteSubmissionSerializer(many=True)
-    
-    def validate(self, data):
-        """Validar todas as submissões em lote"""
-        submissions = data.get('submissions', [])
-        if not submissions:
-            raise serializers.ValidationError("No submissions provided")
-        
-        # Verificar duplicados
-        codes = [s.get('vote_table_code') for s in submissions]
-        if len(codes) != len(set(codes)):
-            raise serializers.ValidationError("Duplicate vote table codes found")
-        
-        return data
-
-
-# ============================================
-# SERIALIZERS PARA COMPARAÇÃO DE RESULTADOS
-# ============================================
-
-class ResultComparisonSerializer(serializers.Serializer):
-    """Serializer para comparar resultados entre diferentes níveis"""
-    level = serializers.CharField()
+class CountrySummarySerializer(serializers.Serializer):
+    """Serializer for country summary"""
+    id = serializers.IntegerField()
     name = serializers.CharField()
-    total_votes = serializers.IntegerField()
-    parties = serializers.DictField(
-        child=serializers.DictField()
-    )
+    code = serializers.CharField()
+    total_deputies = serializers.IntegerField()
+    total_districts = serializers.IntegerField()
+    total_circunscricoes = serializers.IntegerField()
+    total_vote_tables = serializers.IntegerField()
+    total_voters = serializers.IntegerField()
+    total_votes_cast = serializers.IntegerField()
+    turnout_percentage = serializers.FloatField()
 
 
-class ElectionEvolutionSerializer(serializers.Serializer):
-    """Serializer para evolução dos resultados ao longo do tempo"""
-    timestamp = serializers.DateTimeField()
+class PartyResultsSerializer(serializers.Serializer):
+    """Serializer for party results aggregation"""
+    party_id = serializers.IntegerField()
+    party_name = serializers.CharField()
+    party_abbreviation = serializers.CharField()
+    party_color = serializers.CharField()
     total_votes = serializers.IntegerField()
-    voter_turnout = serializers.FloatField()
-    parties = serializers.DictField(
-        child=serializers.DictField()
-    )
+    percentage = serializers.FloatField()
+
+
+class ElectionResultsSerializer(serializers.Serializer):
+    """Serializer for complete election results"""
+    total_voters = serializers.IntegerField()
+    total_votes_cast = serializers.IntegerField()
+    turnout_percentage = serializers.FloatField()
+    valid_votes = serializers.IntegerField()
+    invalid_votes = serializers.IntegerField()
+    blank_votes = serializers.IntegerField()
+    results_by_party = PartyResultsSerializer(many=True)
+    last_updated = serializers.DateTimeField()
+
+
+# ============================================
+# DYNAMIC SERIALIZER FOR FLEXIBLE RESPONSES
+# ============================================
+
+class DynamicFieldsModelSerializer(serializers.ModelSerializer):
+    """
+    A ModelSerializer that takes an additional `fields` argument that
+    controls which fields should be displayed.
+    """
+    
+    def __init__(self, *args, **kwargs):
+        # Don't pass the 'fields' arg up to the superclass
+        fields = kwargs.pop('fields', None)
+        
+        # Instantiate the superclass normally
+        super().__init__(*args, **kwargs)
+        
+        if fields is not None:
+            # Drop any fields that are not specified in the `fields` argument.
+            allowed = set(fields)
+            existing = set(self.fields)
+            for field_name in existing - allowed:
+                self.fields.pop(field_name)
+
+
+class FlexibleCountrySerializer(DynamicFieldsModelSerializer):
+    """Flexible Country serializer with dynamic fields"""
+    
+    class Meta:
+        model = Country
+        fields = '__all__'
+
+
+class FlexibleDistrictSerializer(DynamicFieldsModelSerializer):
+    """Flexible District serializer with dynamic fields"""
+    country_name = serializers.CharField(source='country.name', read_only=True)
+    
+    class Meta:
+        model = District
+        fields = '__all__'
+
+
+class FlexibleVoteTableSerializer(DynamicFieldsModelSerializer):
+    """Flexible VoteTable serializer with dynamic fields"""
+    circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True)
+    polling_station_name = serializers.CharField(source='polling_station.name', read_only=True)
+    
+    class Meta:
+        model = VoteTable
+        fields = '__all__'
