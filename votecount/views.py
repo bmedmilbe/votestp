@@ -28,6 +28,7 @@ from .serializers import (
     PartySerializer,
     PollingStationSerializer,
     ResultPerPartySerializer,
+    VoteEntryCreateSerializer,
     VoteEntrySerializer,
     VoteTableCreateSerializer,
     VoteTableSerializer,
@@ -317,12 +318,24 @@ class VoteEntryViewSet(AgentWriteViewSet):
     Nested routes:
     - /votetables/{vote_table_pk}/voteentries/
     """
-    queryset = VoteEntry.objects.all()
-    serializer_class = VoteEntrySerializer
-    permission_classes = [IsAuthenticated]
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
     lookup_field = 'pk'
     ordering_fields = ['votes_count', 'recorded_at']
     ordering = ['-votes_count']
+
+    def get_queryset(self):
+        return VoteEntry.objects.filter(vote_table_id=self.kwargs['vote_table_pk'])
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return VoteEntryCreateSerializer
+        return VoteEntrySerializer
+    def get_serializer_context(self):
+        return {
+            "user_id": self.request.user, 
+            "vote_table_pk": self.kwargs['vote_table_pk']
+        }
     
     
 # ============================================

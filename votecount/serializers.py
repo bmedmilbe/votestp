@@ -139,7 +139,26 @@ class VoteEntrySerializer(serializers.ModelSerializer):
                   'votes_count', 'recorded_at', 'updated_at']
         read_only_fields = ['id', 'recorded_at', 'updated_at']
 
+class VoteEntryCreateSerializer(serializers.ModelSerializer):
+    """Serializer for creating or updating VoteEntry models via nested routes"""
+    
+    class Meta:
+        model = VoteEntry
+        fields = ['id', 'vote_table', 'party', 'votes_count']
+        read_only_fields = ['id', 'vote_table', 'recorded_at', 'updated_at']
 
+    def create(self, validated_data):
+        vote_table_pk = self.context["vote_table_pk"]
+        party = validated_data.pop('party')
+
+        vote_entry, created = VoteEntry.objects.update_or_create(
+            vote_table_id=vote_table_pk,
+            party=party,
+            defaults=validated_data
+        )
+        
+        return vote_entry
+    
 class VoteTableSerializer(serializers.ModelSerializer):
     """Serializer for VoteTable model"""
     circunscricao_code = serializers.CharField(source='circunscricao.code', read_only=True)
