@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.db.models import Sum
 from rest_framework import serializers
 
@@ -16,6 +17,7 @@ from .models import (
     VoteEntry,
     VoteTable,
 )
+from .tasks import sum_vote_entry_task
 
 # ============================================
 # BASE SERIALIZERS
@@ -151,13 +153,18 @@ class VoteEntryCreateSerializer(serializers.ModelSerializer):
         vote_table_pk = self.context["vote_table_pk"]
         party = validated_data.pop('party')
 
-        vote_entry, created = VoteEntry.objects.update_or_create(
-            vote_table_id=vote_table_pk,
-            party=party,
-            defaults=validated_data
-        )
-        
+        with transaction.atomic():
+            vote_entry, created = VoteEntry.objects.update_or_create(
+                vote_table_id=vote_table_pk,
+                party=party,
+                defaults=validated_data
+            )
+            
+            # transaction.on_commit(lambda: sum_vote_entry_task.delay(vote_entry.id))
+            transaction.on_commit(lambda: sum_vote_entry_task(vote_entry.id))
+            
         return vote_entry
+            
     
 class VoteTableSerializer(serializers.ModelSerializer):
     """Serializer for VoteTable model"""
