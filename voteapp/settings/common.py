@@ -32,12 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'channels',
+
      # Third party
     "rest_framework",
     "rest_framework_simplejwt",
@@ -52,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,7 +82,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'voteapp.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -130,6 +133,7 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
     "LOGIN_FIELD": "email",
     "USER_ID_FIELD": "id",
+    'TOKEN_MODEL': None, 
     "SERIALIZERS": {
         "user_create": "core.serializers.UserCreateSerializer",
         "user": "core.serializers.UserSerializer",
@@ -150,5 +154,23 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "AUTH_HEADER_TYPES": ("JWT",)
+    "AUTH_HEADER_TYPES": ("JWT",),
+    'ROTATE_REFRESH_TOKENS': False,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
 }
+
+WSGI_APPLICATION = 'voteapp.wsgi.application'
+ASGI_APPLICATION = 'voteapp.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('voter', 6379)],
+        },
+    },
+}
+
