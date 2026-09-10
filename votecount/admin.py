@@ -6,8 +6,6 @@ from .models import (
     Agent,
     Circunscricao,
     Country,
-    DeputiesPerCountryPerParty,
-    DeputiesPerDistrictPerParty,
     District,
     Party,
     PollingStation,
@@ -129,16 +127,17 @@ class CountryAdmin(admin.ModelAdmin):
 @admin.register(District)
 class DistrictAdmin(admin.ModelAdmin):
     """Admin configuration for District model"""
-    list_display = ['id', 'name', 'sigla', 'country', 'district_type', 'total_deputies', 
+    list_display = ['id', 'name', 'sigla', 'total_deputies', 'district_type', 'total_deputies', 
                     'circunscricoes_count', 'vote_tables_count']
     list_filter = ['country', 'district_type', 'total_deputies']
+    list_editable =['total_deputies']
     search_fields = ['name', 'sigla', 'country__name']
     autocomplete_fields = ['country']
     ordering = ['country', 'name']
     inlines = [CircunscricaoInline]
     fieldsets = (
         ('District Information', {
-            'fields': ('name', 'sigla', 'country', 'district_type', 'total_deputies')
+            'fields': ('name', 'sigla', 'district_type', 'total_deputies')
         }),
     )
     
@@ -328,7 +327,7 @@ class ResultPerCountryPerPartyAdmin(admin.ModelAdmin):
     ordering = ['country', 'party']
     fieldsets = (
         ('Result Information', {
-            'fields': ('country', 'party', 'result')
+            'fields': ('country', 'party', 'result', 'deputies')
         }),
     )
 
@@ -343,7 +342,7 @@ class ResultPerDistrictPerPartyAdmin(admin.ModelAdmin):
     ordering = ['district', 'party']
     fieldsets = (
         ('Result Information', {
-            'fields': ('district', 'party', 'result')
+            'fields': ('district', 'party', 'result', 'deputies')
         }),
     )
 
@@ -359,36 +358,6 @@ class ResultPerCircunscricaoPerPartyAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Result Information', {
             'fields': ('circunscricao', 'party', 'result')
-        }),
-    )
-
-
-@admin.register(DeputiesPerCountryPerParty)
-class DeputiesPerCountryPerPartyAdmin(admin.ModelAdmin):
-    """Admin for deputies per country per party"""
-    list_display = ['id', 'country', 'party', 'deputies']
-    list_filter = ['country', 'party']
-    search_fields = ['country__name', 'party__name']
-    autocomplete_fields = ['country', 'party']
-    ordering = ['country', 'party', '-deputies']
-    fieldsets = (
-        ('Deputies Information', {
-            'fields': ('country', 'party', 'deputies')
-        }),
-    )
-
-
-@admin.register(DeputiesPerDistrictPerParty)
-class DeputiesPerDistrictPerPartyAdmin(admin.ModelAdmin):
-    """Admin for deputies per district per party"""
-    list_display = ['id', 'district', 'party', 'deputies']
-    list_filter = ['district__country', 'district', 'party']
-    search_fields = ['district__name', 'party__name']
-    autocomplete_fields = ['district', 'party']
-    ordering = ['district', 'party', '-deputies']
-    fieldsets = (
-        ('Deputies Information', {
-            'fields': ('district', 'party', 'deputies')
         }),
     )
 
