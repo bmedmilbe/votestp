@@ -655,7 +655,7 @@ class ResultPerCountryPerParty(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='results_per_country_per_party', null=True, blank=True)
     party = models.ForeignKey(Party, on_delete=models.CASCADE, related_name='results_per_country_per_party')
     result = models.IntegerField()
-    
+    deputies = models.IntegerField()
     objects = ResultPerCountryPerPartyManager()
 
     class Meta:
@@ -666,6 +666,7 @@ class ResultPerDistrictPerParty(models.Model):
     district = models.ForeignKey(District, on_delete=models.CASCADE, related_name='results_per_district_per_party', null=True, blank=True)
     party = models.ForeignKey(Party, on_delete=models.CASCADE, related_name='results_per_district_per_party')
     result = models.IntegerField()
+    deputies = models.IntegerField()
     
     objects = ResultPerDistrictPerPartyManager()
 
@@ -679,28 +680,8 @@ class ResultPerCircunscricaoPerParty(models.Model):
     result = models.IntegerField()
     
     objects = ResultPerCircunscricaoPerPartyManager()
-
+    deputies = models.IntegerField(default=0)
     class Meta:
         unique_together = ['circunscricao', 'party']
 
 
-class DeputiesPerCountryPerParty(models.Model):
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='deputies_per_country_per_party', null=True, blank=True)
-    party = models.ForeignKey(Party, on_delete=models.CASCADE, related_name='deputies_per_country_per_party')
-    deputies = models.IntegerField()
-    
-    objects = DeputiesPerCountryPerPartyManager()
-
-    class Meta:
-        unique_together = ['country', 'party']
-
-
-class DeputiesPerDistrictPerParty(models.Model):
-    district = models.ForeignKey(District, on_delete=models.CASCADE, related_name='deputies_per_district_per_party', null=True, blank=True)
-    party = models.ForeignKey(Party, on_delete=models.CASCADE, related_name='deputies_per_district_per_party')
-    deputies = models.IntegerField()
-    
-    objects = DeputiesPerDistrictPerPartyManager()
-
-    class Meta:
-        unique_together = ['district', 'party']
