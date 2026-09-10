@@ -18,13 +18,11 @@ router.register(r'voteentries', views.VoteEntryViewSet, basename='voteentry')
 countries_router = routers.NestedDefaultRouter(router, r'countries', lookup='country')
 countries_router.register(r'districts', views.CountryDistrictsViewSet, basename='country-districts')
 countries_router.register(r'results', views.ResultPerCountryViewSet, basename='country-results')
-countries_router.register(r'deputies', views.DeputiesPerCountryViewSet, basename='country-deputies')
 
 districts_router = routers.NestedDefaultRouter(router, r'districts', lookup='district')
 districts_router.register(r'circunscricoes', views.DistrictCircunscricoesViewSet, basename='district-circunscricoes')
 districts_router.register(r'votetables', views.VoteTableViewSet, basename='district-votetables')
 districts_router.register(r'results', views.ResultPerDistrictViewSet, basename='district-results')
-districts_router.register(r'deputies', views.DeputiesPerDistrictViewSet, basename='district-deputies')
 
 circunscricoes_router = routers.NestedDefaultRouter(router, r'circunscricoes', lookup='circunscricao')
 circunscricoes_router.register(r'polling-stations', views.CircunscricaoPollingStationsViewSet, basename='circunscricao-pollingstations')

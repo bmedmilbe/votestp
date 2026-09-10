@@ -8,12 +8,16 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from core.views import UserTokenObtainPairView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/vote/", include("votecount.urls")),
     # Auth/Account endpoints
-    path("api/auth/", include("djoser.urls")),
-    path("api/auth/", include("djoser.urls.jwt")),
+    path('api/vote/auth/jwt/create/', UserTokenObtainPairView.as_view(), name='jwt-create'),
+
+    path("api/vote/auth/", include("djoser.urls")),
+
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     # Optional UI:
     path(
