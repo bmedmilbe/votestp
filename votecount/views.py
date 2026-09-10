@@ -3,14 +3,13 @@ import logging
 from django.db.models import Sum
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from .models import (
     Circunscricao,
     Country,
-    DeputiesPerCountryPerParty,
-    DeputiesPerDistrictPerParty,
     District,
     Party,
     PollingStation,
@@ -23,7 +22,6 @@ from .models import (
 from .serializers import (
     CircunscricaoSerializer,
     CountrySerializer,
-    DeputiesPerPartySerializer,
     DistrictSerializer,
     PartySerializer,
     PollingStationSerializer,
@@ -35,8 +33,9 @@ from .serializers import (
 )
 
 logger = logging.getLogger(__name__)
-
-
+class LargeResultsSetPagination(PageNumberPagination):
+    page_size = 1000
+   
 class ReadOnlyViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """Base viewset for read-only access"""
     permission_classes = [IsAuthenticatedOrReadOnly]
@@ -214,42 +213,6 @@ class ResultPerCircunscricaoViewSet(ReadOnlyViewSet):
         return ResultPerCircunscricaoPerParty.objects.none()
 
 
-# ============================================
-# NESTED DEPUTIES VIEWSETS (READ-ONLY)
-# ============================================
-
-class DeputiesPerCountryViewSet(ReadOnlyViewSet):
-    """
-    Deputies per country - read only
-    Nested route: /countries/{country_pk}/deputies/
-    """
-    serializer_class = DeputiesPerPartySerializer
-    lookup_field = 'pk'
-    
-    def get_queryset(self):
-        country_pk = self.kwargs.get('country_pk')
-        if country_pk:
-            return DeputiesPerCountryPerParty.objects.filter(
-                country_id=country_pk
-            ).select_related('party')
-        return DeputiesPerCountryPerParty.objects.none()
-
-
-class DeputiesPerDistrictViewSet(ReadOnlyViewSet):
-    """
-    Deputies per district - read only
-    Nested route: /districts/{district_pk}/deputies/
-    """
-    serializer_class = DeputiesPerPartySerializer
-    lookup_field = 'pk'
-    
-    def get_queryset(self):
-        district_pk = self.kwargs.get('district_pk')
-        if district_pk:
-            return DeputiesPerDistrictPerParty.objects.filter(
-                district_id=district_pk
-            ).select_related('party')
-        return DeputiesPerDistrictPerParty.objects.none()
 
 
 # ============================================
@@ -271,9 +234,10 @@ class VoteTableViewSet(AgentWriteViewSet):
     search_fields = ['code', 'location_details']
     ordering_fields = ['code', 'total_voters', 'valid_votes', 'recorded_at']
     ordering = ['code']
+    pagination_class = LargeResultsSetPagination
 
     def get_serializer_class(self):
-        if self.action == 'create':
+        if self.action == 'update':
             return VoteTableCreateSerializer
         return VoteTableSerializer
 
