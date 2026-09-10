@@ -6,8 +6,6 @@ from .models import (
     Agent,
     Circunscricao,
     Country,
-    DeputiesPerCountryPerParty,
-    DeputiesPerDistrictPerParty,
     District,
     Party,
     PollingStation,
@@ -148,7 +146,7 @@ class VoteEntryCreateSerializer(serializers.ModelSerializer):
         model = VoteEntry
         fields = ['id', 'vote_table', 'party', 'votes_count']
         read_only_fields = ['id', 'vote_table', 'recorded_at', 'updated_at']
-
+        validators = []
     def create(self, validated_data):
         vote_table_pk = self.context["vote_table_pk"]
         party = validated_data.pop('party')
@@ -203,15 +201,37 @@ class VoteTableSerializer(serializers.ModelSerializer):
 
 class VoteTableCreateSerializer(serializers.ModelSerializer):
     """Serializer for creating VoteTable"""
-    
+    vote_entries = VoteEntryCreateSerializer(many=True)
     class Meta:
         model = VoteTable
-        fields = ['id', 'code', 'circunscricao', 'polling_station', 
-                  'total_voters', 'valid_votes', 'invalid_votes', 
-                  'blank_votes', 'location_details']
+        fields = ['id',  'invalid_votes', 'blank_votes', 'vote_entries']
         read_only_fields = ['id']
 
+    def update(self, instance, validated_data):
+        
+        instance.invalid_votes = validated_data.get('invalid_votes', instance.invalid_votes)
+        instance.blank_votes = validated_data.get('blank_votes', instance.blank_votes)
+        instance.save()
+        parties_data = validated_data.pop('vote_entries')
+        for party_data in parties_data:
+            party = party_data.pop('party')
+            
+            with transaction.atomic():
+                vote_entry, created = VoteEntry.objects.update_or_create(
+                    vote_table=instance,
+                    party=party,
+                    defaults=party_data
+                )
+                
+                # transaction.on_commit(lambda: sum_vote_entry_task.delay(vote_entry.id))
+                transaction.on_commit(lambda: sum_vote_entry_task(vote_entry.id))
+                        
+            # VoteEntry.objects.create(election_result=election_result, **party_data)
+       
+        return instance
 
+    
+    
 # ============================================
 # RESULT AND DEPUTIES SERIALIZERS
 # ============================================
@@ -226,20 +246,7 @@ class ResultPerPartySerializer(serializers.ModelSerializer):
     class Meta:
         model = ResultPerCountryPerParty  # Works for all Result models
         fields = ['id', 'party_id', 'party_name', 'party_abbreviation', 
-                  'party_color', 'result']
-
-
-class DeputiesPerPartySerializer(serializers.ModelSerializer):
-    """Serializer for deputies per party"""
-    party_id = serializers.IntegerField(source='party.id', read_only=True)
-    party_name = serializers.CharField(source='party.name', read_only=True)
-    party_abbreviation = serializers.CharField(source='party.abbreviation', read_only=True)
-    party_color = serializers.CharField(source='party.color', read_only=True)
-    
-    class Meta:
-        model = DeputiesPerCountryPerParty  # Works for all Deputies models
-        fields = ['id', 'party_id', 'party_name', 'party_abbreviation', 
-                  'party_color', 'deputies']
+                  'party_color', 'result', 'deputies']
 
 
 # ============================================
@@ -329,10 +336,10 @@ class NestedDistrictSerializer(serializers.ModelSerializer):
         return ResultPerPartySerializer(results, many=True).data
     
     def get_deputies(self, obj):
-        deputies = DeputiesPerDistrictPerParty.objects.filter(
-            district=obj
-        ).select_related('party')
-        return DeputiesPerPartySerializer(deputies, many=True).data
+            deputies = ResultPerDistrictPerParty.objects.filter(
+                district=obj
+            ).select_related('party')
+            return ResultPerPartySerializer(deputies, many=True).data
     
     def get_total_voters(self, obj):
         return VoteTable.objects.filter(
@@ -359,10 +366,10 @@ class NestedCountrySerializer(serializers.ModelSerializer):
         return ResultPerPartySerializer(results, many=True).data
     
     def get_deputies(self, obj):
-        deputies = DeputiesPerCountryPerParty.objects.filter(
+        deputies = ResultPerCountryPerParty.objects.filter(
             country=obj
         ).select_related('party')
-        return DeputiesPerPartySerializer(deputies, many=True).data
+        return ResultPerPartySerializer(deputies, many=True).data
     
     def get_total_voters(self, obj):
         return VoteTable.objects.filter(
@@ -409,6 +416,7 @@ class PartyResultsSerializer(serializers.Serializer):
     party_color = serializers.CharField()
     total_votes = serializers.IntegerField()
     percentage = serializers.FloatField()
+    deputies = serializers.IntegerField()
 
 
 class ElectionResultsSerializer(serializers.Serializer):
