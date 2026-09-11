@@ -7,12 +7,12 @@ from core.serializers import UserCreateSerializer
 @pytest.fixture
 def user_valid_data():
     return {
-            "first_name": "John",
-            "last_name": "Smith",
-            "email": "user@website.com",
-            "username": "user@website.com",
-            "password": "PassW0rd123",
-        }
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "user@website.com",
+        "username": "user@website.com",
+        "password": "PassW0rd123",
+    }
 
 
 @pytest.mark.django_db

@@ -6,173 +6,395 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('votecount', '0001_initial'),
+        ("votecount", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Country',
+            name="Country",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('code', models.CharField(max_length=10, unique=True)),
-                ('total_deputies', models.PositiveIntegerField(default=55)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("code", models.CharField(max_length=10, unique=True)),
+                ("total_deputies", models.PositiveIntegerField(default=55)),
             ],
             options={
-                'verbose_name_plural': 'Countries',
+                "verbose_name_plural": "Countries",
             },
         ),
         migrations.CreateModel(
-            name='OriginalDataImport',
+            name="OriginalDataImport",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('json_data', models.JSONField()),
-                ('import_date', models.DateTimeField(auto_now_add=True)),
-                ('imported_by', models.CharField(blank=True, max_length=100, null=True)),
-                ('notes', models.TextField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("json_data", models.JSONField()),
+                ("import_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "imported_by",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
+                ("notes", models.TextField(blank=True, null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Party',
+            name="Party",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('abbreviation', models.CharField(max_length=20, unique=True)),
-                ('color', models.CharField(default='#000000', max_length=7)),
-                ('is_active', models.BooleanField(default=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("abbreviation", models.CharField(max_length=20, unique=True)),
+                ("color", models.CharField(default="#000000", max_length=7)),
+                ("is_active", models.BooleanField(default=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name_plural': 'Parties',
-                'ordering': ['name'],
+                "verbose_name_plural": "Parties",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='District',
+            name="District",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('sigla', models.CharField(max_length=10)),
-                ('total_deputies', models.PositiveIntegerField(default=0)),
-                ('country', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='districts', to='votecount.country')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("sigla", models.CharField(max_length=10)),
+                ("total_deputies", models.PositiveIntegerField(default=0)),
+                (
+                    "country",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="districts",
+                        to="votecount.country",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['name'],
-                'unique_together': {('name', 'sigla', 'country')},
+                "ordering": ["name"],
+                "unique_together": {("name", "sigla", "country")},
             },
         ),
         migrations.CreateModel(
-            name='Circunscricao',
+            name="Circunscricao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=20, unique=True)),
-                ('name', models.CharField(blank=True, max_length=100, null=True)),
-                ('district', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='circunscricoes', to='votecount.district')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("code", models.CharField(max_length=20, unique=True)),
+                ("name", models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "district",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="circunscricoes",
+                        to="votecount.district",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Circunscrições',
-                'ordering': ['code'],
+                "verbose_name_plural": "Circunscrições",
+                "ordering": ["code"],
             },
         ),
         migrations.CreateModel(
-            name='ElectionStats',
+            name="ElectionStats",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('total_voters', models.PositiveIntegerField(default=0)),
-                ('total_valid_votes', models.PositiveIntegerField(default=0)),
-                ('total_invalid_votes', models.PositiveIntegerField(default=0)),
-                ('total_blank_votes', models.PositiveIntegerField(default=0)),
-                ('voter_turnout', models.FloatField(default=0.0)),
-                ('total_deputies', models.PositiveIntegerField(default=55)),
-                ('calculated_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('country', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='election_stats', to='votecount.country')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("total_voters", models.PositiveIntegerField(default=0)),
+                ("total_valid_votes", models.PositiveIntegerField(default=0)),
+                ("total_invalid_votes", models.PositiveIntegerField(default=0)),
+                ("total_blank_votes", models.PositiveIntegerField(default=0)),
+                ("voter_turnout", models.FloatField(default=0.0)),
+                ("total_deputies", models.PositiveIntegerField(default=55)),
+                ("calculated_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "country",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="election_stats",
+                        to="votecount.country",
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Election Statistics',
+                "verbose_name_plural": "Election Statistics",
             },
         ),
         migrations.CreateModel(
-            name='PollingStation',
+            name="PollingStation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('circunscricao', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='polling_stations', to='votecount.circunscricao')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                (
+                    "circunscricao",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="polling_stations",
+                        to="votecount.circunscricao",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['name'],
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='VoteTable',
+            name="VoteTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=20)),
-                ('total_voters', models.PositiveIntegerField(default=0, verbose_name='Eleitores')),
-                ('valid_votes', models.PositiveIntegerField(default=0)),
-                ('invalid_votes', models.PositiveIntegerField(default=0)),
-                ('blank_votes', models.PositiveIntegerField(default=0)),
-                ('location_details', models.TextField(blank=True, null=True)),
-                ('recorded_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('circunscricao', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='vote_tables', to='votecount.circunscricao')),
-                ('polling_station', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='vote_tables', to='votecount.pollingstation')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("code", models.CharField(max_length=20)),
+                (
+                    "total_voters",
+                    models.PositiveIntegerField(default=0, verbose_name="Eleitores"),
+                ),
+                ("valid_votes", models.PositiveIntegerField(default=0)),
+                ("invalid_votes", models.PositiveIntegerField(default=0)),
+                ("blank_votes", models.PositiveIntegerField(default=0)),
+                ("location_details", models.TextField(blank=True, null=True)),
+                ("recorded_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "circunscricao",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="vote_tables",
+                        to="votecount.circunscricao",
+                    ),
+                ),
+                (
+                    "polling_station",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="vote_tables",
+                        to="votecount.pollingstation",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['code'],
-                'unique_together': {('code', 'circunscricao')},
+                "ordering": ["code"],
+                "unique_together": {("code", "circunscricao")},
             },
         ),
         migrations.CreateModel(
-            name='HondtCalculation',
+            name="HondtCalculation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('total_votes', models.PositiveIntegerField(default=0)),
-                ('deputies_allocated', models.PositiveIntegerField(default=0, validators=[django.core.validators.MinValueValidator(0)])),
-                ('calculation_round', models.PositiveIntegerField(default=1)),
-                ('calculated_at', models.DateTimeField(auto_now_add=True)),
-                ('district', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='hondt_calculations', to='votecount.district')),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='hondt_calculations', to='votecount.party')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("total_votes", models.PositiveIntegerField(default=0)),
+                (
+                    "deputies_allocated",
+                    models.PositiveIntegerField(
+                        default=0,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                    ),
+                ),
+                ("calculation_round", models.PositiveIntegerField(default=1)),
+                ("calculated_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "district",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="hondt_calculations",
+                        to="votecount.district",
+                    ),
+                ),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="hondt_calculations",
+                        to="votecount.party",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['district', 'party', 'calculation_round'],
-                'unique_together': {('district', 'party', 'calculation_round')},
+                "ordering": ["district", "party", "calculation_round"],
+                "unique_together": {("district", "party", "calculation_round")},
             },
         ),
         migrations.CreateModel(
-            name='VoteResult',
+            name="VoteResult",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('result_type', models.CharField(choices=[('TABLE', 'Voting Table'), ('CIRCUNSCRICAO', 'Circunscrição'), ('DISTRICT', 'District'), ('COUNTRY', 'Country')], max_length=20)),
-                ('total_votes', models.PositiveIntegerField(default=0)),
-                ('deputies_allocated', models.PositiveIntegerField(default=0)),
-                ('calculated_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('circunscricao', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results', to='votecount.circunscricao')),
-                ('district', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results', to='votecount.district')),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results', to='votecount.party')),
-                ('vote_table', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results', to='votecount.votetable')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "result_type",
+                    models.CharField(
+                        choices=[
+                            ("TABLE", "Voting Table"),
+                            ("CIRCUNSCRICAO", "Circunscrição"),
+                            ("DISTRICT", "District"),
+                            ("COUNTRY", "Country"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("total_votes", models.PositiveIntegerField(default=0)),
+                ("deputies_allocated", models.PositiveIntegerField(default=0)),
+                ("calculated_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "circunscricao",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results",
+                        to="votecount.circunscricao",
+                    ),
+                ),
+                (
+                    "district",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results",
+                        to="votecount.district",
+                    ),
+                ),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results",
+                        to="votecount.party",
+                    ),
+                ),
+                (
+                    "vote_table",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results",
+                        to="votecount.votetable",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('result_type', 'party', 'circunscricao', 'district', 'vote_table')},
+                "unique_together": {
+                    ("result_type", "party", "circunscricao", "district", "vote_table")
+                },
             },
         ),
         migrations.CreateModel(
-            name='VoteEntry',
+            name="VoteEntry",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('votes_count', models.PositiveIntegerField(default=0, validators=[django.core.validators.MinValueValidator(0)])),
-                ('recorded_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='vote_entries', to='votecount.party')),
-                ('vote_table', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='vote_entries', to='votecount.votetable')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "votes_count",
+                    models.PositiveIntegerField(
+                        default=0,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                    ),
+                ),
+                ("recorded_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="vote_entries",
+                        to="votecount.party",
+                    ),
+                ),
+                (
+                    "vote_table",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="vote_entries",
+                        to="votecount.votetable",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['vote_table', 'party'],
-                'unique_together': {('vote_table', 'party')},
+                "ordering": ["vote_table", "party"],
+                "unique_together": {("vote_table", "party")},
             },
         ),
     ]

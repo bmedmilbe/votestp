@@ -14,4 +14,3 @@ def save_agent_for_user(sender, instance, **kwargs):
         instance.agent.save()
     except Agent.DoesNotExist:
         Agent.objects.create(user=instance)
-

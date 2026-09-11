@@ -4,41 +4,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0003_alter_user_options_alter_user_email_and_more'),
+        ("core", "0003_alter_user_options_alter_user_email_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='user',
-            options={'verbose_name': 'user', 'verbose_name_plural': 'users'},
+            name="user",
+            options={"verbose_name": "user", "verbose_name_plural": "users"},
         ),
         migrations.RemoveConstraint(
-            model_name='user',
-            name='first_name_not_empty',
+            model_name="user",
+            name="first_name_not_empty",
         ),
         migrations.RemoveConstraint(
-            model_name='user',
-            name='last_name_not_empty',
+            model_name="user",
+            name="last_name_not_empty",
         ),
         migrations.RemoveConstraint(
-            model_name='user',
-            name='email_not_empty',
+            model_name="user",
+            name="email_not_empty",
         ),
         migrations.AlterField(
-            model_name='user',
-            name='email',
+            model_name="user",
+            name="email",
             field=models.EmailField(max_length=255, unique=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='first_name',
+            model_name="user",
+            name="first_name",
             field=models.CharField(max_length=255),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='last_name',
+            model_name="user",
+            name="last_name",
             field=models.CharField(max_length=255),
         ),
     ]

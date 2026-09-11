@@ -4,15 +4,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0004_alter_user_options_remove_user_first_name_not_empty_and_more'),
+        ("core", "0004_alter_user_options_remove_user_first_name_not_empty_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='user_type',
-            field=models.CharField(choices=[('admin', 'Administrador'), ('agent', 'Agent'), ('citizen', 'Elector')], default='citizen', max_length=20),
+            model_name="user",
+            name="user_type",
+            field=models.CharField(
+                choices=[
+                    ("admin", "Administrador"),
+                    ("agent", "Agent"),
+                    ("citizen", "Elector"),
+                ],
+                default="citizen",
+                max_length=20,
+            ),
         ),
     ]

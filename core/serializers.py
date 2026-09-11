@@ -1,4 +1,3 @@
-
 from django.contrib.auth.models import Group
 from djoser.serializers import (
     UserCreateSerializer,
@@ -21,9 +20,6 @@ class UserSerializer(UserSerializer):
         ]
 
 
-
-
-
 class UserCreateSerializer(UserCreateSerializer):
     """
     Serializer for user registration.
@@ -32,13 +28,13 @@ class UserCreateSerializer(UserCreateSerializer):
     class Meta:
         model = User
         fields = [
-                  "id", 
-                  "first_name",
-                  "last_name",
-                  "email",
-                  "username",
-                  "password",
-                  'user_type'
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "username",
+            "password",
+            "user_type",
         ]
 
     def create(self, validated_data):
@@ -47,23 +43,23 @@ class UserCreateSerializer(UserCreateSerializer):
         """
         validated_data["username"] = validated_data["email"]
 
-        user_type = validated_data.pop('user_type', 'citizen')
-        
+        user_type = validated_data.pop("user_type", "citizen")
+
         user = super().create(validated_data)
-        
+
         # Adiciona ao grupo apropriado
         group, _ = Group.objects.get_or_create(name=user_type)
         user.groups.add(group)
-        
+
         return user
-    
+
+
 class TokenCreateSerializer(TokenObtainPairSerializer):
     """
     Serializer for obtain token.
     """
+
     def validate(self, attrs):
         data = super().validate(attrs)
-        data['user'] = UserSerializer(self.user).data
+        data["user"] = UserSerializer(self.user).data
         return data
-        
-    

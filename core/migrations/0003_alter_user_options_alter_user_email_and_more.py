@@ -5,42 +5,59 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
-        ('core', '0002_alter_user_email_alter_user_first_name_and_more'),
+        ("auth", "0012_alter_user_first_name_max_length"),
+        ("core", "0002_alter_user_email_alter_user_first_name_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='user',
+            name="user",
             options={},
         ),
         migrations.AlterField(
-            model_name='user',
-            name='email',
-            field=models.EmailField(max_length=255, unique=True, validators=[django.core.validators.MinLengthValidator(2)]),
+            model_name="user",
+            name="email",
+            field=models.EmailField(
+                max_length=255,
+                unique=True,
+                validators=[django.core.validators.MinLengthValidator(2)],
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='first_name',
-            field=models.CharField(max_length=255, validators=[django.core.validators.MinLengthValidator(2)]),
+            model_name="user",
+            name="first_name",
+            field=models.CharField(
+                max_length=255,
+                validators=[django.core.validators.MinLengthValidator(2)],
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='last_name',
-            field=models.CharField(max_length=255, validators=[django.core.validators.MinLengthValidator(2)]),
+            model_name="user",
+            name="last_name",
+            field=models.CharField(
+                max_length=255,
+                validators=[django.core.validators.MinLengthValidator(2)],
+            ),
         ),
         migrations.AddConstraint(
-            model_name='user',
-            constraint=models.CheckConstraint(condition=models.Q(('first_name', ''), _negated=True), name='first_name_not_empty'),
+            model_name="user",
+            constraint=models.CheckConstraint(
+                condition=models.Q(("first_name", ""), _negated=True),
+                name="first_name_not_empty",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='user',
-            constraint=models.CheckConstraint(condition=models.Q(('last_name', ''), _negated=True), name='last_name_not_empty'),
+            model_name="user",
+            constraint=models.CheckConstraint(
+                condition=models.Q(("last_name", ""), _negated=True),
+                name="last_name_not_empty",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='user',
-            constraint=models.CheckConstraint(condition=models.Q(('email', ''), _negated=True), name='email_not_empty'),
+            model_name="user",
+            constraint=models.CheckConstraint(
+                condition=models.Q(("email", ""), _negated=True), name="email_not_empty"
+            ),
         ),
     ]

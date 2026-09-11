@@ -4,15 +4,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('votecount', '0004_alter_deputiesperdistrictperparty_unique_together_and_more'),
+        (
+            "votecount",
+            "0004_alter_deputiesperdistrictperparty_unique_together_and_more",
+        ),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='resultpercircunscricaoperparty',
-            name='deputies',
+            model_name="resultpercircunscricaoperparty",
+            name="deputies",
             field=models.IntegerField(default=0),
         ),
     ]

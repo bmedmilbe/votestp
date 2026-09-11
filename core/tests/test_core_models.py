@@ -36,7 +36,7 @@ class TestCoreModels:
         # Act
         saved_user = User.objects.create(**data)
         users_count = len(User.objects.all())
-        
+
         # Then
         assert users_count == 1
         assert saved_user.agent.id == 1

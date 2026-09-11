@@ -9,12 +9,12 @@ class TestCoreViews(APITestCase):
         self.register_url = "/api/auth/users/"
         self.login_url = "/api/auth/jwt/create/"
         self.valid_data = {
-        "first_name": "John",
-        "last_name": "Smith",
-        "email": "user@website.com",
-        "username": "user@website.com",
-        "password": "PassW0rd123",
-    }
+            "first_name": "John",
+            "last_name": "Smith",
+            "email": "user@website.com",
+            "username": "user@website.com",
+            "password": "PassW0rd123",
+        }
 
     def test_core_api_create_account(self):
         """Ensure we can create a new account object and verify DB state."""
@@ -24,9 +24,7 @@ class TestCoreViews(APITestCase):
         self.assertEqual(User.objects.count(), 1)
 
         # Verify response matches sent payload (ignoring password which shouldn't be returned raw)
-        self.assertEqual(
-            response.data["username"], self.valid_data["email"]
-        )
+        self.assertEqual(response.data["username"], self.valid_data["email"])
 
         # Verify database fields
         user = User.objects.get()
@@ -36,15 +34,13 @@ class TestCoreViews(APITestCase):
     def test_create_account_duplicate_email(self):
         """Ensure a user cannot register with an existing mobile number."""
         # Create initial user
-        User.objects.create_user(
-            **self.valid_data
-        )
+        User.objects.create_user(**self.valid_data)
 
         # Try to register again with same data
         response = self.client.post(self.register_url, self.valid_data, format="json")
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(User.objects.count(), 1)  
+        self.assertEqual(User.objects.count(), 1)
 
     def test_login_success(self):
         """Ensure an existing user can log in with correct credentials."""

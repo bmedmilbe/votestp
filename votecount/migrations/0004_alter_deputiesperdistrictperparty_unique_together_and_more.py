@@ -4,40 +4,39 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('votecount', '0003_deputiespercountryperparty_and_more'),
+        ("votecount", "0003_deputiespercountryperparty_and_more"),
     ]
 
     operations = [
         migrations.AlterUniqueTogether(
-            name='deputiesperdistrictperparty',
+            name="deputiesperdistrictperparty",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='deputiesperdistrictperparty',
-            name='district',
+            model_name="deputiesperdistrictperparty",
+            name="district",
         ),
         migrations.RemoveField(
-            model_name='deputiesperdistrictperparty',
-            name='party',
+            model_name="deputiesperdistrictperparty",
+            name="party",
         ),
         migrations.AddField(
-            model_name='resultpercountryperparty',
-            name='deputies',
+            model_name="resultpercountryperparty",
+            name="deputies",
             field=models.IntegerField(default=0),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='resultperdistrictperparty',
-            name='deputies',
+            model_name="resultperdistrictperparty",
+            name="deputies",
             field=models.IntegerField(default=0),
             preserve_default=False,
         ),
         migrations.DeleteModel(
-            name='DeputiesPerCountryPerParty',
+            name="DeputiesPerCountryPerParty",
         ),
         migrations.DeleteModel(
-            name='DeputiesPerDistrictPerParty',
+            name="DeputiesPerDistrictPerParty",
         ),
     ]

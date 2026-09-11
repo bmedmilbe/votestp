@@ -5,141 +5,256 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('votecount', '0002_country_originaldataimport_party_district_and_more'),
+        ("votecount", "0002_country_originaldataimport_party_district_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='DeputiesPerCountryPerParty',
+            name="DeputiesPerCountryPerParty",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('deputies', models.IntegerField()),
-                ('country', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='deputies_per_country_per_party', to='votecount.country')),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='deputies_per_country_per_party', to='votecount.party')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("deputies", models.IntegerField()),
+                (
+                    "country",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="deputies_per_country_per_party",
+                        to="votecount.country",
+                    ),
+                ),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="deputies_per_country_per_party",
+                        to="votecount.party",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('country', 'party')},
+                "unique_together": {("country", "party")},
             },
         ),
         migrations.CreateModel(
-            name='DeputiesPerDistrictPerParty',
+            name="DeputiesPerDistrictPerParty",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('deputies', models.IntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("deputies", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='ResultPerCircunscricaoPerParty',
+            name="ResultPerCircunscricaoPerParty",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('result', models.IntegerField()),
-                ('circunscricao', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results_per_circunscricao_per_party', to='votecount.circunscricao')),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results_per_circunscricao_per_party', to='votecount.party')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("result", models.IntegerField()),
+                (
+                    "circunscricao",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results_per_circunscricao_per_party",
+                        to="votecount.circunscricao",
+                    ),
+                ),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results_per_circunscricao_per_party",
+                        to="votecount.party",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('circunscricao', 'party')},
+                "unique_together": {("circunscricao", "party")},
             },
         ),
         migrations.CreateModel(
-            name='ResultPerCountryPerParty',
+            name="ResultPerCountryPerParty",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('result', models.IntegerField()),
-                ('country', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results_per_country_per_party', to='votecount.country')),
-                ('party', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results_per_country_per_party', to='votecount.party')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("result", models.IntegerField()),
+                (
+                    "country",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results_per_country_per_party",
+                        to="votecount.country",
+                    ),
+                ),
+                (
+                    "party",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="results_per_country_per_party",
+                        to="votecount.party",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('country', 'party')},
+                "unique_together": {("country", "party")},
             },
         ),
         migrations.CreateModel(
-            name='ResultPerDistrictPerParty',
+            name="ResultPerDistrictPerParty",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('result', models.IntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("result", models.IntegerField()),
             ],
         ),
         migrations.RemoveField(
-            model_name='electionstats',
-            name='country',
+            model_name="electionstats",
+            name="country",
         ),
         migrations.AlterUniqueTogether(
-            name='hondtcalculation',
+            name="hondtcalculation",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='hondtcalculation',
-            name='district',
+            model_name="hondtcalculation",
+            name="district",
         ),
         migrations.RemoveField(
-            model_name='hondtcalculation',
-            name='party',
+            model_name="hondtcalculation",
+            name="party",
         ),
         migrations.DeleteModel(
-            name='OriginalDataImport',
+            name="OriginalDataImport",
         ),
         migrations.AlterUniqueTogether(
-            name='voteresult',
+            name="voteresult",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='voteresult',
-            name='circunscricao',
+            model_name="voteresult",
+            name="circunscricao",
         ),
         migrations.RemoveField(
-            model_name='voteresult',
-            name='district',
+            model_name="voteresult",
+            name="district",
         ),
         migrations.RemoveField(
-            model_name='voteresult',
-            name='party',
+            model_name="voteresult",
+            name="party",
         ),
         migrations.RemoveField(
-            model_name='voteresult',
-            name='vote_table',
+            model_name="voteresult",
+            name="vote_table",
         ),
         migrations.AddField(
-            model_name='district',
-            name='district_type',
-            field=models.CharField(choices=[('SAO TOME', 'São Tomé e Príncipe'), ('DIASPORA_EUROPE', 'Diaspora Europa'), ('DIASPORA_AFRICA', 'Diaspora Africa')], default='SAO TOME', max_length=20),
+            model_name="district",
+            name="district_type",
+            field=models.CharField(
+                choices=[
+                    ("SAO TOME", "São Tomé e Príncipe"),
+                    ("DIASPORA_EUROPE", "Diaspora Europa"),
+                    ("DIASPORA_AFRICA", "Diaspora Africa"),
+                ],
+                default="SAO TOME",
+                max_length=20,
+            ),
         ),
         migrations.AddField(
-            model_name='deputiesperdistrictperparty',
-            name='district',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='deputies_per_district_per_party', to='votecount.district'),
+            model_name="deputiesperdistrictperparty",
+            name="district",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="deputies_per_district_per_party",
+                to="votecount.district",
+            ),
         ),
         migrations.AddField(
-            model_name='deputiesperdistrictperparty',
-            name='party',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='deputies_per_district_per_party', to='votecount.party'),
+            model_name="deputiesperdistrictperparty",
+            name="party",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="deputies_per_district_per_party",
+                to="votecount.party",
+            ),
         ),
         migrations.AddField(
-            model_name='resultperdistrictperparty',
-            name='district',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='results_per_district_per_party', to='votecount.district'),
+            model_name="resultperdistrictperparty",
+            name="district",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="results_per_district_per_party",
+                to="votecount.district",
+            ),
         ),
         migrations.AddField(
-            model_name='resultperdistrictperparty',
-            name='party',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results_per_district_per_party', to='votecount.party'),
+            model_name="resultperdistrictperparty",
+            name="party",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="results_per_district_per_party",
+                to="votecount.party",
+            ),
         ),
         migrations.DeleteModel(
-            name='ElectionStats',
+            name="ElectionStats",
         ),
         migrations.DeleteModel(
-            name='HondtCalculation',
+            name="HondtCalculation",
         ),
         migrations.DeleteModel(
-            name='VoteResult',
+            name="VoteResult",
         ),
         migrations.AlterUniqueTogether(
-            name='deputiesperdistrictperparty',
-            unique_together={('district', 'party')},
+            name="deputiesperdistrictperparty",
+            unique_together={("district", "party")},
         ),
         migrations.AlterUniqueTogether(
-            name='resultperdistrictperparty',
-            unique_together={('district', 'party')},
+            name="resultperdistrictperparty",
+            unique_together={("district", "party")},
         ),
     ]
