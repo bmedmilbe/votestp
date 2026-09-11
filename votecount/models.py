@@ -591,12 +591,12 @@ class District(models.Model):
     )
     total_deputies = models.PositiveIntegerField(default=0)
     DISTRIC_TYPE_CHOICES = [
-        ("SAO TOME", "São Tomé e Príncipe"),
+        ("SAO_TOME", "São Tomé e Príncipe"),
         ("DIASPORA_EUROPE", "Diaspora Europa"),
         ("DIASPORA_AFRICA", "Diaspora Africa"),
     ]
     district_type = models.CharField(
-        max_length=20, choices=DISTRIC_TYPE_CHOICES, default="SAO TOME"
+        max_length=20, choices=DISTRIC_TYPE_CHOICES, default="SAO_TOME"
     )
 
     objects = DistrictManager()
