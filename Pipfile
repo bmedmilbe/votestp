@@ -20,18 +20,18 @@ django-storages = "*"
 boto3 = "*"
 djangorestframework-simplejwt = "*"
 django-filter = "*"
-django-redis = "*"
-celery = {extras = ["redis"], version = "*"}
 channels = "*"
 channels-redis = "*"
 pytest-asyncio = "*"
 daphne = "*"
+django-redis = "*"
+celery = {extras = ["redis"], version = "*"}
 
 [dev-packages]
-ruff = "*"
 pytest-cov = "*"
 pytest = "*"
 pytest-django = "*"
+ruff = "*"
 
 [requires]
 python_version = "3.10"

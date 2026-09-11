@@ -1,4 +1,5 @@
 from asgiref.sync import async_to_sync
+from celery import shared_task
 from channels.layers import get_channel_layer
 from django.db import transaction
 from django.db.models import Sum
@@ -11,6 +12,7 @@ from .models import (
     ResultPerCountryPerParty,
     ResultPerDistrictPerParty,
     VoteEntry,
+    VoteTable,
 )
 
 
@@ -35,7 +37,7 @@ def broadcast_result_update(channel_layer, group_name, type_name, data):
     try:
         async_to_sync(channel_layer.group_send)(
             group_name,
-            {'type': type_name, 'data': data['results']},
+            {"type": type_name, "data": data["results"]},
         )
         return True
     except Exception as e:
@@ -45,13 +47,13 @@ def broadcast_result_update(channel_layer, group_name, type_name, data):
 
 def broadcast_to_all_groups(channel_layer, type_name, data):
     """data is the payload dict; we send it under the 'data' key."""
-    groups = ['citizen', 'admin', 'agent']
+    groups = ["citizen", "admin", "agent"]
 
-    if data.get('country_id'):
+    if data.get("country_id"):
         groups.append(f"result_country_{data['country_id']}")
-    if data.get('district_id'):
+    if data.get("district_id"):
         groups.append(f"result_district_{data['district_id']}")
-    if data.get('circunscricao_id'):
+    if data.get("circunscricao_id"):
         groups.append(f"result_circunscricao_{data['circunscricao_id']}")
 
     for group in groups:
@@ -61,112 +63,144 @@ def broadcast_to_all_groups(channel_layer, type_name, data):
 
 # ---- Individual broadcasters (NO async decorator!) --------------------
 
+
 def broadcast_result_per_country(country_id, channel_layer=None):
     from .serializers import NestedCountrySerializer
+
     channel_layer = channel_layer or get_channel_layer()
 
     country = Country.objects.get(id=country_id)
     payload = {
-        'type': 'result_country',
-        'country_id': country_id,
-        'results': NestedCountrySerializer(country).data,
+        "type": "result_country",
+        "country_id": country_id,
+        "results": NestedCountrySerializer(country).data,
     }
-    broadcast_to_all_groups(channel_layer, 'result_country', payload)
+    broadcast_to_all_groups(channel_layer, "result_country", payload)
 
 
 def broadcast_result_per_district(district_id, channel_layer=None):
     from .serializers import NestedDistrictSerializer
+
     channel_layer = channel_layer or get_channel_layer()
 
-    district = District.objects.select_related('country').get(id=district_id)
+    district = District.objects.select_related("country").get(id=district_id)
     payload = {
-        'type': 'result_district',
-        'district_id': district_id,
-        'results': NestedDistrictSerializer(district).data,
+        "type": "result_district",
+        "district_id": district_id,
+        "results": NestedDistrictSerializer(district).data,
     }
-    broadcast_to_all_groups(channel_layer, 'result_district', payload)
+    broadcast_to_all_groups(channel_layer, "result_district", payload)
 
 
 def broadcast_result_per_circunscricao(circunscricao_id, channel_layer=None):
     from .serializers import NestedCircunscricaoSerializer
+
     channel_layer = channel_layer or get_channel_layer()
 
-    circ = Circunscricao.objects.select_related('district__country').get(id=circunscricao_id)
+    circ = Circunscricao.objects.select_related("district__country").get(
+        id=circunscricao_id
+    )
     payload = {
-        'type': 'result_circunscricao',
-        'circunscricao_id': circunscricao_id,
-        'results': NestedCircunscricaoSerializer(circ).data,
+        "type": "result_circunscricao",
+        "circunscricao_id": circunscricao_id,
+        "results": NestedCircunscricaoSerializer(circ).data,
     }
-    broadcast_to_all_groups(channel_layer, 'result_circunscricao', payload)
+    broadcast_to_all_groups(channel_layer, "result_circunscricao", payload)
 
 
 # ---- Main task ---------------------------------------------------------
 
-def sum_vote_entry_task(vote_entry_id):
+
+@shared_task
+def aggregate_votetable_results_task(vote_table_id):
+    """
+    Processes all tiers of election calculations at the VoteTable level.
+    Guarantees zero deadlocks by sorting all bulk-updates by primary key.
+    """
+    channel_layer = get_channel_layer()
+
     try:
+        # 1. Fetch metadata and anchor rows deterministically via select_for_update
         with transaction.atomic():
             try:
-                entry = VoteEntry.objects.select_for_update().get(id=vote_entry_id)
-            except VoteEntry.DoesNotExist:
-                msg = f"VoteEntry {vote_entry_id} not found."
-                broadcast_result_update(
-                    get_channel_layer(), 'admin', 'error', {'message': msg}
+                vote_table = (
+                    VoteTable.objects.select_for_update()
+                    .select_related("circunscricao__district__country")
+                    .get(id=vote_table_id)
                 )
-                return msg
+            except VoteTable.DoesNotExist:
+                return f"VoteTable {vote_table_id} not found."
 
-            vote_table    = entry.vote_table
             circunscricao = vote_table.circunscricao
-            district      = circunscricao.district
-            country       = district.country
-            channel_layer = get_channel_layer()
+            district = circunscricao.district
+            country = district.country
 
-            # 1. ResultPerCircunscricaoPerParty
-            for row in (VoteEntry.objects
-                        .filter(vote_table__circunscricao=circunscricao)
-                        .values('party_id').annotate(total=Sum('votes_count'))):
+            # ==========================================
+            # 1. CIRCUNSCRIÇÃO LEVEL PROCESS
+            # ==========================================
+            circ_rows = (
+                VoteEntry.objects.filter(vote_table__circunscricao=circunscricao)
+                .values("party_id")
+                .annotate(total=Sum("votes_count"))
+            )
+
+            # SORT by party_id to prevent deadlocks across rows
+            sorted_circ_rows = sorted(circ_rows, key=lambda x: x["party_id"])
+
+            for row in sorted_circ_rows:
                 ResultPerCircunscricaoPerParty.objects.update_or_create(
-                    circunscricao=circunscricao, party_id=row['party_id'],
-                    defaults={'result': row['total']},
+                    circunscricao=circunscricao,
+                    party_id=row["party_id"],
+                    defaults={"result": row["total"]},
                 )
 
-
             # ==========================================
-            # 1. DISTRICT LEVEL PROCESS & SEAT ALLOCATION
+            # 2. DISTRICT LEVEL PROCESS & SEAT ALLOCATION
             # ==========================================
-            is_diaspora = district.district_type in ['DIASPORA_EUROPE', 'DIASPORA_AFRICA']
+            is_diaspora = district.district_type in [
+                "DIASPORA_EUROPE",
+                "DIASPORA_AFRICA",
+            ]
 
             if is_diaspora:
-                # Diaspora blocks share exactly 1 seat across all their countries
                 total_seats = 1
-                # Aggregate votes across ALL districts in this global diaspora block
                 district_votes_query = (
-                    VoteEntry.objects
-                    .filter(vote_table__circunscricao__district__district_type=district.district_type)
-                    .values('party_id')
-                    .annotate(total=Sum('votes_count'))
+                    VoteEntry.objects.filter(
+                        vote_table__circunscricao__district__district_type=district.district_type
+                    )
+                    .values("party_id")
+                    .annotate(total=Sum("votes_count"))
                 )
             else:
-                # Standard districts use their own total_deputies
                 total_seats = district.total_deputies
                 district_votes_query = (
-                    VoteEntry.objects
-                    .filter(vote_table__circunscricao__district=district)
-                    .values('party_id')
-                    .annotate(total=Sum('votes_count'))
+                    VoteEntry.objects.filter(
+                        vote_table__circunscricao__district=district
+                    )
+                    .values("party_id")
+                    .annotate(total=Sum("votes_count"))
                 )
 
-            # Calculate D'Hondt seats for the district tier
-            dist_votes = {r['party_id']: r['total'] for r in district_votes_query if r['total'] > 0}
+            dist_votes = {
+                r["party_id"]: r["total"]
+                for r in district_votes_query
+                if r["total"] > 0
+            }
             district_seats = run_dhondt(dist_votes, total_seats)
 
-            # Upsert District results
-            for party_id, total in dist_votes.items():
-                # If diaspora, calculate this specific district's isolated vote share for display
+            # SORT keys to enforce strict database row locking sequences
+            sorted_party_ids = sorted(dist_votes.keys())
+
+            for party_id in sorted_party_ids:
+                total = dist_votes[party_id]
+
                 if is_diaspora:
                     specific_total = (
-                        VoteEntry.objects
-                        .filter(vote_table__circunscricao__district=district, party_id=party_id)
-                        .aggregate(t=Sum('votes_count'))['t'] or 0
+                        VoteEntry.objects.filter(
+                            vote_table__circunscricao__district=district,
+                            party_id=party_id,
+                        ).aggregate(t=Sum("votes_count"))["t"]
+                        or 0
                     )
                 else:
                     specific_total = total
@@ -175,61 +209,61 @@ def sum_vote_entry_task(vote_entry_id):
                     district=district,
                     party_id=party_id,
                     defaults={
-                        'result': specific_total,
-                        'deputies': district_seats.get(party_id, 0) 
+                        "result": specific_total,
+                        "deputies": district_seats.get(party_id, 0),
                     },
                 )
 
-
             # ==========================================
-            # 2. COUNTRY LEVEL PROCESS (SUM OF DISTRICTS)
+            # 3. COUNTRY LEVEL PROCESS
             # ==========================================
-            # Step A: Get total votes cast in this country
             country_votes_query = (
-                VoteEntry.objects
-                .filter(vote_table__circunscricao__district__country=country)
-                .values('party_id')
-                .annotate(total=Sum('votes_count'))
+                VoteEntry.objects.filter(
+                    vote_table__circunscricao__district__country=country
+                )
+                .values("party_id")
+                .annotate(total=Sum("votes_count"))
+            )
+            sorted_country_rows = sorted(
+                country_votes_query, key=lambda x: x["party_id"]
             )
 
-            # Step B: Sum the actual seats won across all districts belonging to this country
             country_seats_query = (
-                ResultPerDistrictPerParty.objects
-                .filter(district__country=country)
-                .values('party_id')
-                .annotate(total_seats_won=Sum('deputies'))
+                ResultPerDistrictPerParty.objects.filter(district__country=country)
+                .values("party_id")
+                .annotate(total_seats_won=Sum("deputies"))
             )
-            country_seats_map = {m['party_id']: m['total_seats_won'] for m in country_seats_query}
+            country_seats_map = {
+                m["party_id"]: m["total_seats_won"] for m in country_seats_query
+            }
 
-            # Step C: Write combined data to Country tier
-            for row in country_votes_query:
-                party_id = row['party_id']
+            for row in sorted_country_rows:
+                p_id = row["party_id"]
                 ResultPerCountryPerParty.objects.update_or_create(
                     country=country,
-                    party_id=party_id,
+                    party_id=p_id,
                     defaults={
-                        'result': row['total'],
-                        'deputies': country_seats_map.get(party_id, 0) # Summed up from districts
+                        "result": row["total"],
+                        "deputies": country_seats_map.get(p_id, 0),
                     },
                 )
 
+        # ==========================================
+        # 4. BROADCASTS (Executed OUTSIDE the DB Transaction)
+        # ==========================================
+        broadcast_result_per_circunscricao(circunscricao.id, channel_layer)
+        broadcast_result_per_district(district.id, channel_layer)
+        broadcast_result_per_country(country.id, channel_layer)
 
-            # ==========================================
-            # 3. BROADCASTS
-            # ==========================================
-            broadcast_result_per_circunscricao(circunscricao.id, channel_layer)
-            broadcast_result_per_district(district.id, channel_layer)
-            broadcast_result_per_country(country.id, channel_layer)
-
-
-
-            return f"Successfully recalculated and broadcasted results for entry {vote_entry_id}"
+        return f"Successfully processed and broadcasted VoteTable {vote_table_id}"
 
     except Exception as e:
         try:
             broadcast_result_update(
-                get_channel_layer(), 'admin', 'error',
-                {'message': str(e), 'vote_entry_id': vote_entry_id},
+                channel_layer,
+                "admin",
+                "error",
+                {"message": str(e), "vote_table_id": vote_table_id},
             )
         except Exception:
             pass
