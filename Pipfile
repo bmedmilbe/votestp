@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 pillow = "*"
@@ -26,6 +25,7 @@ pytest-asyncio = "*"
 daphne = "*"
 django-redis = "*"
 celery = {extras = ["redis"], version = "*"}
+django = "*"
 
 [dev-packages]
 pytest-cov = "*"

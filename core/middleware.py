@@ -1,13 +1,11 @@
 from urllib.parse import parse_qs
 
-from channels.auth import AuthMiddleware
 from channels.db import database_sync_to_async
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from rest_framework_simplejwt.tokens import AccessToken
 
 User = get_user_model()
-
 
 @database_sync_to_async
 def get_user_from_token(token):
@@ -18,10 +16,15 @@ def get_user_from_token(token):
     except Exception:
         return AnonymousUser()
 
+class TokenAuthMiddleware:
+    """
+    Custom middleware to authenticate users via a JWT token passed in the query string.
+    """
+    def __init__(self, inner):
+        self.inner = inner
 
-class TokenAuthMiddleware(AuthMiddleware):
-    async def resolve_scope(self, scope):
-        # Extrai token da query string
+    async def __call__(self, scope, receive, send):
+        # Extract token from the query string
         query_string = scope.get("query_string", b"").decode()
         params = parse_qs(query_string)
         token = params.get("token", [None])[0]
@@ -31,10 +34,9 @@ class TokenAuthMiddleware(AuthMiddleware):
         else:
             scope["user"] = AnonymousUser()
 
-        return scope
-
+        # Pass the request down to the next inner application/middleware
+        return await self.inner(scope, receive, send)
 
 def TokenAuthMiddlewareStack(inner):
     from channels.sessions import CookieMiddleware, SessionMiddleware
-
     return CookieMiddleware(SessionMiddleware(TokenAuthMiddleware(inner)))

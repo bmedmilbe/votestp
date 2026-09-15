@@ -1,0 +1,80 @@
+# --- Stage 1: Build dependencies ---
+FROM python:3.10-slim AS builder
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Install compilation tools needed for wheels
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    pkg-config \
+    libpq-dev \
+    libjpeg-dev \
+    zlib1g-dev \
+    libcairo2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir --upgrade pip pipenv
+
+COPY Pipfile Pipfile.lock ./
+
+# Install packages globally in the builder stage
+RUN pipenv install --system --deploy
+
+# --- Stage 2: Final Runtime Image ---
+FROM python:3.10-slim AS runner
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=voteapp.settings.prod
+ENV PYTHONPATH=/app
+
+WORKDIR /app
+
+# Install only shared runtime libraries (no compilers)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq5 \
+    libjpeg62-turbo \
+    zlib1g \
+    libcairo2 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir gunicorn
+
+# Copy installed Python packages from the builder stage
+COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# 1. Create the secure non-root user first
+RUN adduser --disabled-password myuser
+
+# 2. Set the working directory
+WORKDIR /app
+
+# 3. Copy project files and hand ownership over to myuser in one step
+COPY --chown=myuser:myuser . .
+
+# 4. Create staticfiles directory with correct ownership permissions
+RUN mkdir -p /app/voteapp/staticfiles && chown -R myuser:myuser /app
+
+# 5. Ensure entrypoint is executable (keeps build safe if host permissions change)
+RUN chmod +x ./entrypoint.sh
+
+# 6. Switch to the secure non-root user
+USER myuser
+
+# 7. Run collectstatic safely under the non-root user context
+RUN python manage.py collectstatic --noinput
+
+# 8. Setup execution configurations
+ENTRYPOINT ["./entrypoint.sh"]
+
+
+
+EXPOSE 8000
+
+# Recommended JSON form for smooth OS signal termination
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "voteapp.asgi:application"]
