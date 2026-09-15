@@ -49,3 +49,15 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
 ).split(" ")
 
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://voter:6379")
+
+# Fall back to your local setup if REDIS_URL isn't set in environment variables
+REDIS_URL = os.environ.get("REDIS_URL", "redis://voter:6379")
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [REDIS_URL],
+        },
+    },
+}
