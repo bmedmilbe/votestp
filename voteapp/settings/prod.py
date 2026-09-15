@@ -34,7 +34,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Add the exact local address and port where your frontend UI runs
 CORS_ALLOWED_ORIGINS = [
-    "https://voteapp-mu.vercel.app"
+    "https://voteapp-mu.vercel.app",
     "http://localhost:3000", 
     "http://127.0.0.1:3000",
 ]
